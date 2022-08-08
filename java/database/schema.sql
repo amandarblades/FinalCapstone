@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users, book, family_unit, prize, format, activity_log, user_family, user_book, user_prize;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -9,5 +9,78 @@ CREATE TABLE users (
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
+
+CREATE TABLE book(
+	id SERIAL,
+	title varchar(100) NOT NULL,
+	author varchar(100) NOT NULL,
+	page_count int,
+	CONSTRAINT PK_book PRIMARY KEY(id)
+);
+
+CREATE TABLE family_unit (
+	id SERIAL,
+	family_name varchar(50) NOT NULL,
+	CONSTRAINT PK_family_unit PRIMARY KEY(id)
+);
+CREATE TABLE prize (
+	id serial,
+	prize_name varchar(25) NOT NULL,
+	milestone int NOT NULL,
+	max_prize int NOT NULL,
+	description varchar(200) NOT NULL,
+	user_role varchar(10) NOT NULL,
+	start_date date NOT NULL,
+	end_date date NOT NULL,
+	CONSTRAINT PK_prize PRIMARY KEY(id)
+);
+CREATE TABLE format(
+	id int,
+	description varchar(200) NOT NULL,
+	CONSTRAINT PK_format PRIMARY KEY(id)
+);
+
+CREATE TABLE activity_log(
+	id serial,
+	user_id int NOT NULL,
+	book_id int NOT NULL,
+	format_id int NOT NULL,
+	minutes_read int NOT NULL,
+	notes varchar(200),
+	CONSTRAINT PK_activity_log PRIMARY KEY(id)
+);
+CREATE TABLE user_family(
+	user_id int,
+	family_id int
+);
+
+CREATE TABLE user_book(
+	user_id int,
+	book_id int
+);
+CREATE TABLE user_prize(
+	user_id int,
+	prize_id int
+);
+
+ALTER TABLE activity_log ADD CONSTRAINT FK_activity_log_users FOREIGN KEY(user_id) REFERENCES users(user_id);
+ALTER TABLE activity_log ADD CONSTRAINT FK_activity_log_book FOREIGN KEY(book_id) REFERENCES book(id);
+ALTER TABLE activity_log ADD CONSTRAINT FK_activity_log_format FOREIGN KEY(format_id) REFERENCES format(id);
+
+ALTER TABLE user_family ADD CONSTRAINT FK_user_family_users FOREIGN KEY(user_id) REFERENCES users(user_id);
+ALTER TABLE user_family ADD CONSTRAINT FK_user_family_family_unit FOREIGN KEY(family_id) REFERENCES family_unit(id);
+
+ALTER TABLE user_book ADD CONSTRAINT FK_user_book_users FOREIGN KEY(user_id) REFERENCES users(user_id);
+ALTER TABLE user_book ADD CONSTRAINT FK_user_book_book FOREIGN KEY(book_id) REFERENCES book(id);
+
+ALTER TABLE user_prize ADD CONSTRAINT FK_user_prize_users FOREIGN KEY(user_id) REFERENCES users(user_id);
+ALTER TABLE user_prize ADD CONSTRAINT FK_user_prize_prize FOREIGN KEY(prize_id) REFERENCES prize(id);
+
+INSERT INTO format(id, description) VALUES (1, 'Audiobook');
+INSERT INTO format(id, description) VALUES (2, 'Digital');
+INSERT INTO format(id, description) VALUES (3, 'Paper');
+INSERT INTO format(id, description) VALUES (4,'Read-Aloud (Reader)');
+INSERT INTO format(id, description) VALUES (5, 'Read-Aloud (Listener)');
+INSERT INTO format(id, description) VALUES (6, 'Other');
 
 COMMIT TRANSACTION;
