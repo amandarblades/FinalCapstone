@@ -15,6 +15,8 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private int minutesRead;
+   //TODO: add array of prizes and current prize when we get prizes
 
    public User() { }
 
@@ -64,6 +66,14 @@ public class User {
 
    public void setAuthorities(Set<Authority> authorities) {
       this.authorities = authorities;
+   }
+
+   public int getMinutesRead() {
+      return minutesRead;
+   }
+
+   public void setMinutesRead(int minutesRead) {
+      this.minutesRead = minutesRead;
    }
 
    public void setAuthorities(String authorities) {

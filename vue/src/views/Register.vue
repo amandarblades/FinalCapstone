@@ -32,6 +32,9 @@
         v-model="user.confirmPassword"
         required
       />
+      <label for="isAdmin">Check if you are the Parent: </label>
+      <input type="checkbox" id="isAdmin" v-on:click="user.role='admin'">
+
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
@@ -51,7 +54,7 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
-        role: 'user',
+        role: 'user'
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
