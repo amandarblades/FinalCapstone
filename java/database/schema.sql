@@ -15,7 +15,7 @@ CREATE TABLE book(
 	title varchar(100) NOT NULL,
 	author varchar(100) NOT NULL,
 	page_count int,
-	isbn bigint UNIQUE; 
+    isbn bigint,
 	CONSTRAINT PK_book PRIMARY KEY(id)
 );
 
