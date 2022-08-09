@@ -1,5 +1,6 @@
 <template>
-  <div id="login" class="text-center">
+  <div id="login" class="text-center" >
+       <img id="book-image" src="Book.png" alt="a book background" />
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
@@ -74,3 +75,34 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#login{
+     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     background-size:auto;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+}
+
+.form-signin{
+     display: flex;
+     flex-direction: column;
+     position: absolute;
+     background-color: #2abbb4;    
+     padding: 0px 20px 20px 20px;
+     border-radius: 10px;
+     box-shadow: 4px -3px 0 0 white, 7px -5px 0 0 #2abbb4;
+     
+}
+#book-image{
+     Max-width: 50em;
+     max-height: 50em;
+     z-index: -1;
+     position: relative;
+     top: 0;
+     left: 0;
+}
+
+</style>

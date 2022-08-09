@@ -1,5 +1,8 @@
 <template>
   <div id="register" class="text-center">
+
+<img id="book-image" src="Book.png" alt="a book background" />
+
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
@@ -32,9 +35,8 @@
         v-model="user.confirmPassword"
         required
       />
-      <label for="isAdmin">Check if you are the Parent: </label>
+      <label for="isAdmin">If you are a parent, click here: </label>
       <input type="checkbox" id="isAdmin" v-on:click="user.role='admin'">
-
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
@@ -93,4 +95,33 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+#register{
+     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     background-size:auto;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+}
+
+.form-register{
+     display: flex;
+     flex-direction: column;
+     position: absolute;
+     background-color: #FFB997;    
+     padding: 0px 20px 20px 20px;
+     border-radius: 10px;
+     box-shadow: 4px -3px 0 0 white, 7px -5px 0 0 #FFB997;
+     
+}
+#book-image{
+     Max-width: 50em;
+     max-height: 50em;
+     z-index: -1;
+     position: relative;
+     top: 0;
+     left: 0;
+}
+
+</style>
