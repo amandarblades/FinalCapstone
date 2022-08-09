@@ -15,6 +15,7 @@ CREATE TABLE book(
 	title varchar(100) NOT NULL,
 	author varchar(100) NOT NULL,
 	page_count int,
+	isbn bigint UNIQUE; 
 	CONSTRAINT PK_book PRIMARY KEY(id)
 );
 
@@ -82,5 +83,11 @@ INSERT INTO format(id, description) VALUES (3, 'Paper');
 INSERT INTO format(id, description) VALUES (4,'Read-Aloud (Reader)');
 INSERT INTO format(id, description) VALUES (5, 'Read-Aloud (Listener)');
 INSERT INTO format(id, description) VALUES (6, 'Other');
+
+INSERT INTO book(title, author, page_count, isbn) VALUES ('Frankenstein', 'Mary Shelley', 220, 9781593080051);
+INSERT INTO book(title, author, page_count, isbn) VALUES ('The House on the Border Land', 'William Hope Hodgeson', 300, 9780786702824);
+INSERT INTO book(title, author, page_count, isbn) VALUES ('Dracula', 'Bram Stoker', 317, 157335368);
+INSERT INTO book(title, author, page_count, isbn) VALUES ('Wuthering Heights', 'Emily Bronte', 385, 9780307455185);
+INSERT INTO book(title, author, page_count, isbn) VALUES ('Pride and Prejudice', 'Jane Austen', 262, 9780486284736);
 
 COMMIT TRANSACTION;
