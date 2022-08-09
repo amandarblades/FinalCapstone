@@ -113,6 +113,7 @@ export default {
      padding: 0px 20px 20px 20px;
      border-radius: 10px;
      box-shadow: 4px -3px 0 0 white, 7px -5px 0 0 #FFB997;
+     margin-top: -175px;
      
 }
 #book-image{

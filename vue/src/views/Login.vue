@@ -84,6 +84,7 @@ export default {
      flex-direction: column;
      align-items: center;
      justify-content: center;
+
 }
 
 .form-signin{
@@ -94,6 +95,7 @@ export default {
      padding: 0px 20px 20px 20px;
      border-radius: 10px;
      box-shadow: 4px -3px 0 0 white, 7px -5px 0 0 #2abbb4;
+     margin-top: -100px;
      
 }
 #book-image{
