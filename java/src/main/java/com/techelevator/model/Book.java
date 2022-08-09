@@ -75,6 +75,8 @@ public class Book {
         this.isCurrentBook = true;
     }
 
+    public Book(){}
+
 
 
 }
