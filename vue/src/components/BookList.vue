@@ -2,13 +2,9 @@
   <div>
       <h2>My Books</h2>
       <div class="library">
-          <div class="book"
-          v-for="book in books"
-          v-bind:key="book.title">
-          {{book.title}}
+          <div class="book">
 
-          <book-detail v-for="book in books" v-bind:key="book.title" v-bind:to="{name: 'book-details', params: {title: $route.params.title}}">
-          </book-detail>
+            <book-detail v-for="book in getBooks" v-bind:key="book.title"/>
           
           </div>
 
@@ -23,18 +19,32 @@ import BookService from '@/services/BookService.js'
 import BookDetail from '@/components/BookDetail.vue'
 
 export default {
-     components: { 
+    name: 'book-list',
+    data(){
+        return {
+        book: {
+            title: '',
+            author: '',
+            status: '',
+            isbn: 0
+        },
+        books: []
+        
+     }
+    },
+    components: { 
           BookDetail
      },
-    data(){
-        return{
-            books:[]
+    computed: {
+        getBooks() {
+            return this.$store.state.books;
         }
     },
     created(){
         BookService.getBookList()
         .then( response =>{
                 this.books = response.data;
+                this.$store.commit("SET_CURRENT_USER_BOOKS", response.data);
         });
     }
 

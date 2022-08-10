@@ -26,7 +26,15 @@ export default new Vuex.Store({
       author: '',
       status: '',
       isbn: 0
+      },
+    books: [
+       {
+        title: '',
+        author: '',
+        status: '',
+        isbn: 0
       }
+    ]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -47,6 +55,9 @@ export default new Vuex.Store({
     },
     SET_CURRENT_BOOK(state, data) {
       state.book = data;
+    },
+    SET_CURRENT_USER_BOOKS(state, data){
+      state.books = data;
     }
   }
 })

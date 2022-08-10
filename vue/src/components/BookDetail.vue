@@ -9,28 +9,11 @@
 </template>
 
 <script>
-import bookService from "@/services/BookService.js";
-
 export default {
   name: "book-detail",
-  components: {},
-  data() {
-    return {
-      book: {
-        title: "",
-        author: "",
-        status: "",
-        isbn: 0,
-      },
-    };
-  },
-  created() {
-       bookService
-       .getBookDetails(this.$route.params.title)
-       .then(response => {
-            this.book = response;
-       })
-  },
+  props: 
+      ['book']
+  
 };
 </script>
 
