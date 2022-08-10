@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -32,9 +34,18 @@ public class BookController {
         book = bookDao.findBookByTitle(title);
         int bookID = book.getBookID();
         System.out.println(bookID);
-        String username =  "Nate"; //getCurrentUsername(principal);
+        String username = getCurrentUsername(principal);
         bookDao.addBookToUser(bookID, username);
         return book;
+    }
+
+    @RequestMapping(value = "/books", method = RequestMethod.GET)
+    public List<Book> getBooksByUsername(Principal principal) {
+        List<Book> books = new ArrayList<>();
+        String username = getCurrentUsername(principal);
+
+        books = bookDao.findBooksByUsername(username);
+        return books;
     }
 
     private String getCurrentUsername(Principal principal){
