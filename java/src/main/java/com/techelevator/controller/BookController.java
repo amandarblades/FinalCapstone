@@ -32,8 +32,8 @@ public class BookController {
         book = bookDao.findBookByTitle(title);
         int bookID = book.getBookID();
         System.out.println(bookID);
-//        String username =  "Nate"; //getCurrentUsername(principal);
-//        bookDao.addBookToUser(bookID, username);
+        String username =  "Nate"; //getCurrentUsername(principal);
+        bookDao.addBookToUser(bookID, username);
         return book;
     }
 
