@@ -6,5 +6,8 @@ export default {
     },
     getBookList() {
         return axios.get(`/books`)
+    },
+    getBookDetails(title){
+         return axios.get(`/book/${title}`);
     }
 }

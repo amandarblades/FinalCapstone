@@ -6,6 +6,10 @@
           v-for="book in books"
           v-bind:key="book.title">
           {{book.title}}
+
+          <book-detail v-for="book in books" v-bind:key="book.title" v-bind:to="{name: 'book-details', params: {title: $route.params.title}}">
+          </book-detail>
+          
           </div>
 
       </div>
@@ -16,8 +20,12 @@
 <script>
 
 import BookService from '@/services/BookService.js'
+import BookDetail from '@/components/BookDetail.vue'
 
 export default {
+     components: { 
+          BookDetail
+     },
     data(){
         return{
             books:[]

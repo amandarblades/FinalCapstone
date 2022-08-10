@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>Your Library! still need to be logged in</p>
+    <h1>My Library</h1>
+    <p>See your books, and add a book by title.</p>
     <div >
       <button v-on:click="isShowForm=true">Add New Book</button>
       <div v-show="isShowForm">
