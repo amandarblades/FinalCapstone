@@ -17,11 +17,10 @@ export default {
   props: ["book"],
   methods: {
     retrieveBookByTitle(title) {
-      window.alert("It works!");
       BookService.getBookByTitle(title)
         .then((response) => {
           this.$store.commit("SET_CURRENT_BOOK", response.data);
-          this.$router.push({name: "home"})
+          window.location.reload();
         })
         .catch((error) => {
           if (error.response && error.response.status == 404) {
@@ -33,5 +32,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+div {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 </style>

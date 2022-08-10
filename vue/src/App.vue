@@ -9,7 +9,7 @@
 </template>
 
 <style scoped>
-#nav{
+.app{
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 background-color: rgb(117, 62, 92);
