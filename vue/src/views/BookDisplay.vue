@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Book from '../components/Book.vue'
+import Book from '../components/AddNewBook.vue'
 export default {
   components: { Book },
 

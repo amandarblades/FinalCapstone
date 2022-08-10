@@ -10,6 +10,8 @@ import com.techelevator.security.jwt.TokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController
 @CrossOrigin
 public class BookController {
@@ -24,10 +26,18 @@ public class BookController {
         this.userDao = userDao;
     }
 
-    @RequestMapping(value = "/{title}", method = RequestMethod.GET)
-    public Book getBookByTitle(@PathVariable String title) throws BookNotFoundException {
-        return bookDao.findBookByTitle(title);
+    @RequestMapping(value = "/addbook/{title}", method = RequestMethod.GET)
+    public Book getBookByTitle(@PathVariable String title, Principal principal) throws BookNotFoundException {
+        Book book = null;
+        book = bookDao.findBookByTitle(title);
+        int bookID = book.getBookID();
+        System.out.println(bookID);
+//        String username =  "Nate"; //getCurrentUsername(principal);
+//        bookDao.addBookToUser(bookID, username);
+        return book;
     }
 
-
+    private String getCurrentUsername(Principal principal){
+        return principal.getName();
+    }
 }
