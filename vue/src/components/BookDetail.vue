@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "book-detail",
+  name: "book-details",
   props: 
       ['book']
   

@@ -4,7 +4,7 @@
       <div class="library">
           <div class="book">
 
-            <book-detail v-for="book in getBooks" v-bind:key="book.title"/>
+            <book-card v-bind:book="book" v-for="book in getBooks" v-bind:key="book.title"/>
           
           </div>
 
@@ -16,7 +16,7 @@
 <script>
 
 import BookService from '@/services/BookService.js'
-import BookDetail from '@/components/BookDetail.vue'
+import BookCard from './BookCard.vue'
 
 export default {
     name: 'book-list',
@@ -33,7 +33,7 @@ export default {
      }
     },
     components: { 
-          BookDetail
+        BookCard
      },
     computed: {
         getBooks() {
