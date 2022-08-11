@@ -56,4 +56,28 @@ div {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.book  {
+    /*
+    AS .LIBRARY
+    height: 50vh;
+    overflow: scroll;
+    background-color: lightpink;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+    flex-flow: column wrap;
+    flex-direction: column;
+    min-width: 100%; */
+    
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-width: 80%;
+    overflow: scroll;
+    max-height: 40vh;
+    background-color: rgb(162, 192, 247);
+
+
+}
+
 </style>

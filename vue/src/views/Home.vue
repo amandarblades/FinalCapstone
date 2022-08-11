@@ -9,7 +9,7 @@
         <add-new-book ></add-new-book>
       </div>
     </div>
-    <book-list></book-list>
+    <book-list id="book-list"></book-list>
   </div>
 </template>
 
@@ -38,6 +38,15 @@ export default {
 .home {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   height: 100vh;
+}
+
+#book-list {
+  /* display: flex; */
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  min-width: 30em;
+  align-content: center;
+
 }
 
 
