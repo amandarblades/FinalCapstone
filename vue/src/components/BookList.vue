@@ -84,21 +84,22 @@ div {
     max-width: 70vw;
     overflow: auto;
     max-height: 40vh;
-    background-color: rgb(162, 192, 247);
+    background-color: rgb(40, 134, 126);
       
 }
 ::-webkit-scrollbar{
      width: 10px;
-     background: rgb(162, 192, 247);
+     background: rgb(40, 134, 126);
 }
 ::-webkit-scrollbar-thumb{
      border-radius: 10px;
-     background: rgb(118, 163, 247);
+     background: rgb(37, 121, 114);
 }
 
     .my-books{
-         background-color:rgb(162,192,247);
+         background-color:rgb(40, 134, 126);
          text-align: center;
+         border: solid 2px black;
     } 
 /* added card class to book card to try formatting */
 /* .card{

@@ -98,6 +98,7 @@ export default {
      margin-top: -100px;
      
 }
+
 #book-image{
      Max-width: 50em;
      max-height: 50em;

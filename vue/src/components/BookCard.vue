@@ -58,10 +58,11 @@ export default {
 }
 .style-book{
      text-align: center;
-     background-color: rgb(151, 98, 167);
+     background-color: rgb(128, 64, 83);
      border: 2px black;
      margin: 5px;
      border-radius: 5px;
+     color: rgb(253, 236, 250)
 }
 
 </style>

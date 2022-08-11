@@ -117,12 +117,11 @@ export default {
      
 }
 #book-image{
-     Max-width: 50em;
-     max-height: 50em;
-     z-index: -1;
-     position: relative;
-     top: 0;
-     left: 0;
+     background-repeat: no-repeat;
+     background-position: bottom right;
+     position: absolute;
+     max-width: 100%;
+     max-height: 100%;
 }
 
 </style>
