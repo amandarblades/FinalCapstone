@@ -14,5 +14,7 @@ public interface BookDao {
 
     public void deleteBookFromUser(int bookID, int userID);
 
+    public Book mapRowToBook();
+
     //TODO: Get family books
 }

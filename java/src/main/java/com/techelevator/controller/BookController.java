@@ -48,8 +48,18 @@ public class BookController {
         return Arrays.asList(countries);
     }
 
-    @RequestMapping(value = "/addbook/{isbn}", method = RequestMethod.GET)
-    public Book getBookByISBN(@PathVariable long isbn, Principal principal) throws BookNotFoundException {
+    //@RequestMapping(value = "/addbook/", method = RequestMethod.GET)
+/*    public Book getBookByISBN(){
+        String url = "https://openlibrary.org/works/OL45883W.json";
+        RestTemplate restTemplate = new RestTemplate();
+        Object[] books = restTemplate.getForObject(url, Object[].class);
+
+        bookDao.mapRowToBook();
+
+    }*/
+
+
+   /* public Book getBookByISBN(@PathVariable long isbn, Principal principal) throws BookNotFoundException {
         Book book = null;
         book = bookDao.findBookByISBN(isbn);
         int bookID = book.getBookID();
@@ -57,7 +67,7 @@ public class BookController {
         String username = getCurrentUsername(principal);
         bookDao.addBookToUser(bookID, username);
         return book;
-    }
+    }*/
 
     @RequestMapping(value = "/books", method = RequestMethod.GET)
     public List<Book> getBooksByUsername(Principal principal) {
