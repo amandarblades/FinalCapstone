@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app">  
     <div id="nav">
       <router-link class="nav-button" v-bind:to="{ name: 'home' }" tag="button" style="background-color: teal">My Library</router-link>
       <router-link class="nav-button" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" tag="button" style="background-color: teal">Logout</router-link>
@@ -28,16 +28,19 @@
      
 }
 .nav-button{
-     color: black;
+     color: lightgray;
      padding-left: 8px;
      padding-right: 8px;
      border-radius: 2px;
      border: none;
      margin-left: 10px;
      margin-right: 10px;
+     
 }
 .nav-button:hover{
      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+     color: white;
+     transition: 0.7s;
 }
 
 </style>

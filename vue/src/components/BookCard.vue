@@ -1,5 +1,6 @@
 <template>
-  <router-link v-bind:to="{name: 'book-details', params: {title: book.title}}">
+<!-- changed to div instead of router-link ; added class style-book-->
+  <div v-bind:to="{name: 'book-details', params: {title: book.title}}" class="style-book">
       <div class="card" v-bind:class="{status: book.status}">
           <h5 class="book-title">{{book.title}}</h5>
           <!-- image of book cover here -->
@@ -8,7 +9,7 @@
 
       </div>
 
-  </router-link>
+  </div>
 </template>
 
 <script>
@@ -40,13 +41,27 @@ export default {
      max-height: 100%;
      font-size: 100%; */
 
-     border: 2px solid black;
+     /* border: 2px solid black;  
      width: 150px;
      height: 200px;
      margin: 3px;
      border-radius: 5px;
-     padding-left: 5px;
+     padding-left: 5px;*/
 
+      border: 2px solid black;  
+     width: 150px;
+     height: 200px;
+     margin: 3px;
+     border-radius: 5px;
+     
+
+}
+.style-book{
+     text-align: center;
+     background-color: rgb(151, 98, 167);
+     border: 2px black;
+     margin: 5px;
+     border-radius: 5px;
 }
 
 </style>

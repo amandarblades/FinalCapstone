@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="my-books"> 
+       <!-- added my books class for styling  -->
       <h2>My Books</h2>
       <div class="library">
           <div class="book">
@@ -69,15 +70,33 @@ div {
     flex-direction: column;
     min-width: 100%; */
     
-    display: flex;
+    /* display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     max-width: 80%;
-    overflow: scroll;
+    overflow: auto;
+    max-height: 40vh;
+    background-color: rgb(162, 192, 247); */
+
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-width: auto;
+    overflow: auto;
     max-height: 40vh;
     background-color: rgb(162, 192, 247);
-
-
 }
+
+    .my-books{
+         background-color:rgb(162,192,247);
+         text-align: center;
+    } 
+/* added card class to book card to try formatting */
+/* .card{
+     background-color: violet;
+     
+} */
+
+
 
 </style>
