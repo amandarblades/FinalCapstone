@@ -81,10 +81,19 @@ div {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    max-width: auto;
+    max-width: 70vw;
     overflow: auto;
     max-height: 40vh;
     background-color: rgb(162, 192, 247);
+      
+}
+::-webkit-scrollbar{
+     width: 10px;
+     background: rgb(162, 192, 247);
+}
+::-webkit-scrollbar-thumb{
+     border-radius: 10px;
+     background: rgb(118, 163, 247);
 }
 
     .my-books{
