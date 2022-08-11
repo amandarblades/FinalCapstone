@@ -20,18 +20,18 @@ public class JdbcBookDao implements  BookDao {
     }
 
     @Override
-    public Book findBookByTitle(String title){
+    public Book findBookByISBN(Long isbn){
         Book newBook = null;
 
-        String sqlString = "SELECT * from book where title = ?";
+        String sqlString = "SELECT * from book where isbn = ?";
          try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sqlString, title);
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sqlString, isbn);
             while(results.next()) {
                 newBook = mapRowToBook(results);
             }
         } catch (EmptyResultDataAccessException e) {
             throw new BookNotFoundException();
-        } if(title == null) throw new IllegalArgumentException("Book title cannot be null");
+        } if(isbn.equals(null)) throw new IllegalArgumentException("Book isbn cannot be null");
 
         return newBook;
     }
@@ -69,7 +69,4 @@ public class JdbcBookDao implements  BookDao {
         book.setTitle(rs.getString("title"));
         return book;
     }
-
-
 }
-

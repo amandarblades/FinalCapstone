@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface BookDao {
 
-    public Book findBookByTitle(String title);
+    public Book findBookByISBN(Long isbn);
 
     public List<Book> findBooksByUsername(String username);
 

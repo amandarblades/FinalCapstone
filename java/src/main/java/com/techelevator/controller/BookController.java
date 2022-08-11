@@ -9,10 +9,13 @@ import com.techelevator.model.User;
 import com.techelevator.security.jwt.TokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @CrossOrigin
@@ -28,10 +31,27 @@ public class BookController {
         this.userDao = userDao;
     }
 
-    @RequestMapping(value = "/addbook/{title}", method = RequestMethod.GET)
-    public Book getBookByTitle(@PathVariable String title, Principal principal) throws BookNotFoundException {
+//    @GetMapping(value= "/book")
+//    public List<Book> getBook(){
+//        String url = "https://openlibrary.org/api/books?bibkeys=ISBN:0451526538&callback=mycallback";
+//        RestTemplate restTemplate = new RestTemplate();
+//        Book[] book = restTemplate.getForObject(url, Book[].class);
+//                return Arrays.asList(book);
+//    }
+
+    @GetMapping(value = "/countries")
+    public List<Object> getCountries(){
+        String url = "https://quoters.apps.pcfone.io/api/random";
+        RestTemplate restTemplate = new RestTemplate();
+
+        Object[] countries = restTemplate.getForObject(url, Object[].class);
+        return Arrays.asList(countries);
+    }
+
+    @RequestMapping(value = "/addbook/{isbn}", method = RequestMethod.GET)
+    public Book getBookByISBN(@PathVariable long isbn, Principal principal) throws BookNotFoundException {
         Book book = null;
-        book = bookDao.findBookByTitle(title);
+        book = bookDao.findBookByISBN(isbn);
         int bookID = book.getBookID();
         System.out.println(bookID);
         String username = getCurrentUsername(principal);
