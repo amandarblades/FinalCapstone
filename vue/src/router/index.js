@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import AddFamily from "@/views/AddFamily.vue"
 
 Vue.use(Router)
 
@@ -54,13 +55,23 @@ const router = new Router({
                }
           },
           {
-          path: "/book/:title",
-          name: "book-details",
-          component: Home,
-          meta: {
+               path: "/book/:title",
+               name: "book-details",
+               component: Home,
+               meta: {
                requiresAuth: true
+               },
+
+          },
+          {
+               path: "/addfamily",
+               name: "add-family",
+               component: AddFamily,
+               meta:{
+                    requiresAuth: true
+               },
+
           }
-     }
      ]
 })
 

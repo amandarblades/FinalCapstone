@@ -36,6 +36,11 @@ export default new Vuex.Store({
         isbn: '',
         imgURL: ''
       }
+    ],
+    family: [
+      {
+        user: '',
+      }
     ]
   },
   mutations: {
@@ -60,6 +65,9 @@ export default new Vuex.Store({
     },
     SET_CURRENT_USER_BOOKS(state, data){
       state.books = data;
+    },
+    SET_FAMILY(state, data){
+      state.family = data;
     }
   }
 })

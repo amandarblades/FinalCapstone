@@ -1,16 +1,17 @@
 <template>
 <!-- changed to div instead of router-link ; added class style-book-->
   <div v-bind:to="{name: 'book-details', params: {title: book.title}}" class="style-book">
-      <div class="card" v-bind:class="{status: book.status}">
+      <div class="card" v-bind:class="{status: book.status}" >
           <img  class="book-image" :src="book.imgURL" />
          <!-- <img  class="book-image" v-bind:src="'https://covers.openlibrary.org/b/isbn/' + 9781400079278 + '-M.jpg'" /> -->
+     </div>
+     <div class="overlay">
           <h5 class="book-title">{{book.title}}</h5>
           <h6 class="book-author">{{book.author}}</h6>
-          <img src="" alt="">
+     </div>
           
 
-      </div>
-
+      
   </div>
 </template>
 
@@ -50,7 +51,7 @@ export default {
      border-radius: 5px;
      padding-left: 5px;*/
 
-      border: 2px solid black;  
+     border: 2px solid black;  
      width: 150px;
      height: 200px;
      margin: 3px;
@@ -64,10 +65,12 @@ export default {
 
 img:hover{
       animation: fadeOut ease 1s;
+
 }
 @keyframes fadeOut{
      0% { opacity:1;}
      100% { opacity:0;};
+     
 }
 
 .style-book{

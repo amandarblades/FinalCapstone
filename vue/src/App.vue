@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link class="nav-button" v-bind:to="{ name: 'home' }" tag="button" style="background-color: rgb(28, 80, 104)">My Library</router-link>
       <router-link class="nav-button" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" tag="button" style="background-color: rgb(28, 80, 104)">Logout</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: rgb(28, 80, 104)">Family Library</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'add-family' }" tag="button" style="background-color: rgb(28, 80, 104)">Family Library</router-link>
       <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: rgb(28, 80, 104)">Prizes</router-link>
       <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: rgb(28, 80, 104)">Log Activity</router-link>
     </div>
