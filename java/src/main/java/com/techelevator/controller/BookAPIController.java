@@ -41,7 +41,7 @@ public class BookAPIController {
         returnBook.setAuthor(hit.getDocs()[0].getAuthor_name()[0]);
         returnBook.setTitle(hit.getDocs()[0].getTitle());
         returnBook.setIsbn(ISBN);
-        returnBook.setImageURL("https://covers.openlibrary.org/b/isbn/" + ISBN + "-M.jpg");
+        returnBook.setImgURL("https://covers.openlibrary.org/b/isbn/" + ISBN + "-M.jpg");
 
         String username = "Nate"; //getCurrentUsername(principal);
 

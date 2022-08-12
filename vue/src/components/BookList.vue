@@ -90,7 +90,7 @@ div {
 }
 ::-webkit-scrollbar{
      width: 10px;
-     background: rrgb(66, 107, 182);
+     background: rgb(66, 107, 182);
 }
 ::-webkit-scrollbar-thumb{
      border-radius: 10px;

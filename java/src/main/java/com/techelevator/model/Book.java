@@ -8,15 +8,8 @@ public class Book {
     private boolean isRead;
     private boolean isFavorited;
     private boolean isCurrentBook;
-    private String imageURL;
+    private String imgURL;
 
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
 
     public int getBookID() {
         return bookID;
@@ -74,9 +67,18 @@ public class Book {
         isCurrentBook = currentBook;
     }
 
-    public Book(){}
+    public String getImgURL() {
+        return imgURL;
+    }
 
-    public Book(int bookID, String title, String author, String isbn, boolean isRead, boolean isFavorited, boolean isCurrentBook, String imageURL) {
+    public void setImgURL(String imgURL) {
+        this.imgURL = imgURL;
+    }
+
+    public Book() {
+    }
+
+    public Book(int bookID, String title, String author, String isbn, boolean isRead, boolean isFavorited, boolean isCurrentBook, String imgURL) {
         this.bookID = bookID;
         this.title = title;
         this.author = author;
@@ -84,6 +86,9 @@ public class Book {
         this.isRead = isRead;
         this.isFavorited = isFavorited;
         this.isCurrentBook = isCurrentBook;
-        this.imageURL = imageURL;
+        this.imgURL = imgURL;
+
     }
 }
+
+

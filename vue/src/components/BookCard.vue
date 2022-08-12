@@ -2,7 +2,8 @@
 <!-- changed to div instead of router-link ; added class style-book-->
   <div v-bind:to="{name: 'book-details', params: {title: book.title}}" class="style-book">
       <div class="card" v-bind:class="{status: book.status}">
-         <img  class="book-image" src='{book.imgURL}' />
+          <img  class="book-image" :src="book.imgURL" />
+         <!-- <img  class="book-image" v-bind:src="'https://covers.openlibrary.org/b/isbn/' + 9781400079278 + '-M.jpg'" /> -->
           <h5 class="book-title">{{book.title}}</h5>
           <h6 class="book-author">{{book.author}}</h6>
           <img src="" alt="">

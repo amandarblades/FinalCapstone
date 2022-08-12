@@ -53,7 +53,7 @@ public class JdbcBookDao implements  BookDao {
     public void addBookToUser(Book newBook, String username){
         String sqlAddBook = "INSERT INTO book(title, author, isbn, img_url) VALUES(?,?,?,?) RETURNING id";
 
-        Integer bookID = jdbcTemplate.queryForObject(sqlAddBook, Integer.class, newBook.getTitle(), newBook.getAuthor(), newBook.getIsbn(), newBook.getImageURL());
+        Integer bookID = jdbcTemplate.queryForObject(sqlAddBook, Integer.class, newBook.getTitle(), newBook.getAuthor(), newBook.getIsbn(), newBook.getImgURL());
 
         String sqlAddToUser = "INSERT INTO user_book (user_id, book_id) VALUES ((SELECT user_id FROM users WHERE username= ?), ?);";
         jdbcTemplate.update(sqlAddToUser, username, bookID);
@@ -76,6 +76,7 @@ public class JdbcBookDao implements  BookDao {
         book.setBookID(rs.getInt("id"));
         book.setIsbn(rs.getString("isbn"));
         book.setTitle(rs.getString("title"));
+        book.setImgURL(rs.getString("img_url"));
         return book;
     }
 }
