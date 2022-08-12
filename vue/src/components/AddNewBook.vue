@@ -2,8 +2,8 @@
   <div>
     <div>
       <h1>Search for Book by Title</h1>
-      <input type="text" v-model="titleToSearch" />
-      <button @click="retrieveBookByTitle(titleToSearch)">Submit</button>
+      <input type="text" v-model="isbnToSearch" />
+      <button @click="retrieveBookByIsbn(isbnToSearch)">Submit</button>
     </div>
     
   </div>
@@ -16,8 +16,8 @@ export default {
   name: "search-form",
   props: ["book"],
   methods: {
-    retrieveBookByTitle(title) {
-      BookService.getBookByTitle(title)
+    retrieveBookByIsbn(isbn) {
+      BookService.getBookByIsbn(isbn)
         .then((response) => {
           this.$store.commit("SET_CURRENT_BOOK", response.data);
           window.location.reload();

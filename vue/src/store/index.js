@@ -25,14 +25,16 @@ export default new Vuex.Store({
       title: '',
       author: '',
       status: '',
-      isbn: 0
+      isbn: '',
+      imgURL: ''
       },
     books: [
        {
         title: '',
         author: '',
         status: '',
-        isbn: 0
+        isbn: '',
+        imgURL: ''
       }
     ]
   },
