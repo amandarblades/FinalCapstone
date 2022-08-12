@@ -16,7 +16,7 @@ CREATE TABLE book(
 	author varchar(100) NOT NULL,
 	page_count int,
 	isbn varchar UNIQUE,
-	imgURL varchar,
+	img_url varchar,
 	CONSTRAINT PK_book PRIMARY KEY(id)
 );
 
@@ -85,10 +85,10 @@ INSERT INTO format(id, description) VALUES (4,'Read-Aloud (Reader)');
 INSERT INTO format(id, description) VALUES (5, 'Read-Aloud (Listener)');
 INSERT INTO format(id, description) VALUES (6, 'Other');
 
-INSERT INTO book(title, author, page_count, isbn, imgURL) VALUES ('Frankenstein', 'Mary Shelley', 220, '9781593080051', 'https://covers.openlibrary.org/b/isbn/9781593080051-M.jpg');
-INSERT INTO book(title, author, page_count, isbn, imgURL) VALUES ('The House on the Border Land', 'William Hope Hodgeson', 300, '9780786702824', 'https://covers.openlibrary.org/b/isbn/9780786702824-M.jpg');
-INSERT INTO book(title, author, page_count, isbn, imgURL) VALUES ('Dracula', 'Bram Stoker', 317, '157335368', 'https://covers.openlibrary.org/b/isbn/157335368-M.jpg');
-INSERT INTO book(title, author, page_count, isbn, imgURL) VALUES ('Wuthering Heights', 'Emily Bronte', 385, '9780307455185', 'https://covers.openlibrary.org/b/isbn/9780307455185-M.jpg');
-INSERT INTO book(title, author, page_count, isbn, imgURL) VALUES ('Pride and Prejudice', 'Jane Austen', 262, '9780486284736', 'https://covers.openlibrary.org/b/isbn/9780486284736-M.jpg');
+INSERT INTO book(title, author, page_count, isbn, img_url) VALUES ('Frankenstein', 'Mary Shelley', 220, '9781593080051', 'https://covers.openlibrary.org/b/isbn/9781593080051-M.jpg');
+INSERT INTO book(title, author, page_count, isbn, img_url) VALUES ('The House on the Border Land', 'William Hope Hodgeson', 300, '9780786702824', 'https://covers.openlibrary.org/b/isbn/9780786702824-M.jpg');
+INSERT INTO book(title, author, page_count, isbn, img_url) VALUES ('Dracula', 'Bram Stoker', 317, '157335368', 'https://covers.openlibrary.org/b/isbn/157335368-M.jpg');
+INSERT INTO book(title, author, page_count, isbn, img_url) VALUES ('Wuthering Heights', 'Emily Bronte', 385, '9780307455185', 'https://covers.openlibrary.org/b/isbn/9780307455185-M.jpg');
+INSERT INTO book(title, author, page_count, isbn, img_url) VALUES ('Pride and Prejudice', 'Jane Austen', 262, '9780486284736', 'https://covers.openlibrary.org/b/isbn/9780486284736-M.jpg');
 
 COMMIT TRANSACTION;

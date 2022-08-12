@@ -51,9 +51,9 @@ public class JdbcBookDao implements  BookDao {
 
     @Override
     public void addBookToUser(Book newBook, String username){
-        String sqlAddBook = "INSERT INTO book(title, author, isbn) VALUES(?,?,?)";
+        String sqlAddBook = "INSERT INTO book(title, author, isbn, img_url) VALUES(?,?,?,?) RETURNING id";
 
-        int bookID = 1;
+        Integer bookID = jdbcTemplate.queryForObject(sqlAddBook, Integer.class, newBook.getTitle(), newBook.getAuthor(), newBook.getIsbn(), newBook.getImageURL());
 
         String sqlAddToUser = "INSERT INTO user_book (user_id, book_id) VALUES ((SELECT user_id FROM users WHERE username= ?), ?);";
         jdbcTemplate.update(sqlAddToUser, username, bookID);
