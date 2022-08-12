@@ -16,7 +16,7 @@ public class User {
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
    private int minutesRead;
-   //TODO: add array of prizes and current prize when we get prizes
+   //TODO: add array of prizes and current prize when we get prizes, number of books read, current book
 
    public User() { }
 

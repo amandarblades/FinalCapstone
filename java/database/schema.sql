@@ -1,5 +1,6 @@
 BEGIN TRANSACTION;
 
+
 DROP TABLE IF EXISTS users, book, family_unit, prize, format, activity_log, user_family, user_book, user_prize;
 
 CREATE TABLE users (
@@ -7,6 +8,7 @@ CREATE TABLE users (
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
+	current_book_id int,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 

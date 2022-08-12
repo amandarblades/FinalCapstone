@@ -19,23 +19,6 @@ public class JdbcBookDao implements  BookDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-//    @Override
-//    public Book findBookByISBN(Long isbn){
-//        Book newBook = null;
-//
-//        String sqlString = "SELECT * from book where isbn = ?";
-//         try {
-//            SqlRowSet results = jdbcTemplate.queryForRowSet(sqlString, isbn);
-//            while(results.next()) {
-//                newBook = mapRowToBook(results);
-//            }
-//        } catch (EmptyResultDataAccessException e) {
-//            throw new BookNotFoundException();
-//        } if(isbn.equals(null)) throw new IllegalArgumentException("Book isbn cannot be null");
-//
-//        return newBook;
-//    }
-
     @Override
     public List<Book> findBooksByUsername(String username){
         List<Book> books = new ArrayList<>();
@@ -64,6 +47,7 @@ public class JdbcBookDao implements  BookDao {
         String sql = "DELETE FROM user_book WHERE book_id = ? AND user_id = ?;";
         jdbcTemplate.update(sql, bookID, userID);
     }
+
     @Override
     public Book mapRowToBook(){
         Book book = new Book();
