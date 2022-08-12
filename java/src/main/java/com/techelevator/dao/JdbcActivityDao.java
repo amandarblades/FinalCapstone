@@ -19,7 +19,7 @@ public class JdbcActivityDao implements ActivityDao {
         List<Activity> returnList = new ArrayList<>();
 
         return returnList;
-     }
+    }
 
     public List<Activity> getChildActivities(int userID){
         List<Activity> returnList = new ArrayList<>();

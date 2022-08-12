@@ -18,6 +18,4 @@ public interface ActivityDao {
 
     public void deleteActivity();
 
-
-
 }

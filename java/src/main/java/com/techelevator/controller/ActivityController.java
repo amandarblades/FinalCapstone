@@ -14,8 +14,7 @@ import java.security.Principal;
 @CrossOrigin
 public class ActivityController {
 
-    @Autowired
-    private ActivityDao activityDao;
+
     @Autowired
     private BookDao bookDao;
     @Autowired
@@ -24,7 +23,7 @@ public class ActivityController {
     @RequestMapping(value="/addActivity", method = RequestMethod.POST)
     public void logActivity(@Valid @RequestBody Activity newActivity, Principal principal){
         String username = getCurrentUsername(principal);
-        activityDao.logNewActivity(username, newActivity);
+
 
     }
 
