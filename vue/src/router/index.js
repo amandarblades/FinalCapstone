@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import AddFamily from "@/views/AddFamily.vue"
+import AddNewActivity from "@/views/AddNewActivity"
 
 Vue.use(Router)
 
@@ -23,7 +24,7 @@ const router = new Router({
      base: process.env.BASE_URL,
      routes: [
           {
-               path: '/',
+               path: '/home',
                name: 'home',
                component: Home,
                meta: {
@@ -31,7 +32,7 @@ const router = new Router({
                }
           },
           {
-               path: "/login",
+               path: "/",
                name: "login",
                component: Login,
                meta: {
@@ -71,6 +72,14 @@ const router = new Router({
                     requiresAuth: true
                },
 
+          },
+          {
+               path: "/addactivity",
+               name: "add-activity",
+               component: AddNewActivity,
+               meta: {
+                    requiresAuth: true
+               }
           }
      ]
 })

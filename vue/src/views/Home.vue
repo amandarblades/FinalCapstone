@@ -1,12 +1,11 @@
 <template>
   <div class="home">
     <h1>My Library</h1>
-    <p>See your books, and add a book by title.</p>
-    <div >
+    <p>See your books, and add a book by ISBN.</p>
+    <div>
       <button v-on:click="isShowForm=true" class="button">Add New Book</button>
       <div v-show="isShowForm">
-        <p>testing business</p>
-        <add-new-book ></add-new-book>
+        <add-new-book></add-new-book>
       </div>
     </div>
     <book-list id="book-list"></book-list>

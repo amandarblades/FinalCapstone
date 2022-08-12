@@ -2,6 +2,9 @@
   <div>
       <h2>Register your Family!</h2>
       <add-new-family></add-new-family>
+      <div>
+          <family-list></family-list>
+      </div>
   </div>
   
 </template>

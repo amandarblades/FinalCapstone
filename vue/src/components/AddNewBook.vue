@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h1>Search for Book by Title</h1>
+      <h3>Search for Book by ISBN</h3>
       <input type="text" v-model="isbnToSearch" />
       <button @click="retrieveBookByIsbn(isbnToSearch)" class="button">Submit</button>
     </div>
