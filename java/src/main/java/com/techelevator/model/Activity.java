@@ -8,6 +8,24 @@ public class Activity {
     private int formatID;
     private int minutesRead;
     private String notes;
+    private String title;
+    private String description;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getActivityID() {
         return activityID;
@@ -57,6 +75,10 @@ public class Activity {
         this.notes = notes;
     }
 
+    public Activity(){
+
+    }
+
     public Activity(int activityID, int bookID, int userID, int formatID, int minutesRead) {
         this.activityID = activityID;
         this.bookID = bookID;
@@ -65,8 +87,14 @@ public class Activity {
         this.minutesRead = minutesRead;
     }
 
-    public Activity(){
-
+    public Activity(int activityID, int bookID, int userID, int formatID, int minutesRead, String notes, String title, String description) {
+        this.activityID = activityID;
+        this.bookID = bookID;
+        this.userID = userID;
+        this.formatID = formatID;
+        this.minutesRead = minutesRead;
+        this.notes = notes;
+        this.title = title;
+        this.description = description;
     }
-
 }
