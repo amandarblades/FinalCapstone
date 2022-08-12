@@ -10,6 +10,8 @@ public class JdbcActivityDao implements ActivityDao {
 
     public int logNewActivity(String username, Activity activity){
 
+        String sql = "INSERT INTO activity_log(user_id, book_id, format_id, minutes_read, notes)";
+
         return 1; //TODO: update return value
     }
 
