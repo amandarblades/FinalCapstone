@@ -19,22 +19,22 @@ public class JdbcBookDao implements  BookDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    @Override
-    public Book findBookByISBN(Long isbn){
-        Book newBook = null;
-
-        String sqlString = "SELECT * from book where isbn = ?";
-         try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sqlString, isbn);
-            while(results.next()) {
-                newBook = mapRowToBook(results);
-            }
-        } catch (EmptyResultDataAccessException e) {
-            throw new BookNotFoundException();
-        } if(isbn.equals(null)) throw new IllegalArgumentException("Book isbn cannot be null");
-
-        return newBook;
-    }
+//    @Override
+//    public Book findBookByISBN(Long isbn){
+//        Book newBook = null;
+//
+//        String sqlString = "SELECT * from book where isbn = ?";
+//         try {
+//            SqlRowSet results = jdbcTemplate.queryForRowSet(sqlString, isbn);
+//            while(results.next()) {
+//                newBook = mapRowToBook(results);
+//            }
+//        } catch (EmptyResultDataAccessException e) {
+//            throw new BookNotFoundException();
+//        } if(isbn.equals(null)) throw new IllegalArgumentException("Book isbn cannot be null");
+//
+//        return newBook;
+//    }
 
     @Override
     public List<Book> findBooksByUsername(String username){
@@ -50,9 +50,13 @@ public class JdbcBookDao implements  BookDao {
     }
 
     @Override
-    public void addBookToUser(int bookID, String username){
-        String sql = "INSERT INTO user_book (user_id, book_id) VALUES ((SELECT user_id FROM users WHERE username= ?), ?);";
-        jdbcTemplate.update(sql, username, bookID);
+    public void addBookToUser(Book newBook, String username){
+        String sqlAddBook = "INSERT INTO book(title, author, isbn) VALUES(?,?,?)";
+
+        int bookID = 1;
+
+        String sqlAddToUser = "INSERT INTO user_book (user_id, book_id) VALUES ((SELECT user_id FROM users WHERE username= ?), ?);";
+        jdbcTemplate.update(sqlAddToUser, username, bookID);
     }
 
     @Override
@@ -70,7 +74,7 @@ public class JdbcBookDao implements  BookDao {
         Book book = new Book();
         book.setAuthor(rs.getString("author"));
         book.setBookID(rs.getInt("id"));
-        book.setIsbn(rs.getLong("isbn"));
+        book.setIsbn(rs.getString("isbn"));
         book.setTitle(rs.getString("title"));
         return book;
     }

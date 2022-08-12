@@ -4,10 +4,19 @@ public class Book {
     private int bookID;
     private String title;
     private String author;
-    private long isbn;
+    private String isbn;
     private boolean isRead;
     private boolean isFavorited;
     private boolean isCurrentBook;
+    private String imageURL;
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 
     public int getBookID() {
         return bookID;
@@ -33,11 +42,11 @@ public class Book {
         this.author = author;
     }
 
-    public long getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(long isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
@@ -65,18 +74,16 @@ public class Book {
         isCurrentBook = currentBook;
     }
 
-    public Book(int bookID, String title, String author, long isbn) {
+    public Book(){}
+
+    public Book(int bookID, String title, String author, String isbn, boolean isRead, boolean isFavorited, boolean isCurrentBook, String imageURL) {
         this.bookID = bookID;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
-        this.isRead = false;
-        this.isFavorited = false;
-        this.isCurrentBook = true;
+        this.isRead = isRead;
+        this.isFavorited = isFavorited;
+        this.isCurrentBook = isCurrentBook;
+        this.imageURL = imageURL;
     }
-
-    public Book(){}
-
-
-
 }
