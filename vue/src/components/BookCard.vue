@@ -70,13 +70,14 @@ img:hover{
 
 .style-book{
      text-align: center;
-     background-color: rgb(128, 64, 83);
+     background-color: rgb(40, 136, 120);
      border: 2px black;
      margin: 5px;
      border-radius: 5px;
      color: rgb(253, 236, 250);
      perspective: 1000;
      display: inline-block;
+     
 }
 
 
