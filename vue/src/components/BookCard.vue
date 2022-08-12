@@ -2,8 +2,8 @@
 <!-- changed to div instead of router-link ; added class style-book-->
   <div v-bind:to="{name: 'book-details', params: {title: book.title}}" class="style-book">
       <div class="card" v-bind:class="{status: book.status}">
+         <img  class="book-image" v-bind:src=" 'https://covers.openlibrary.org/b/isbn/9780765362339-M.jpg' " />
           <h5 class="book-title">{{book.title}}</h5>
-          <!-- image of book cover here -->
           <h6 class="book-author">{{book.author}}</h6>
           
 
@@ -53,16 +53,31 @@ export default {
      height: 200px;
      margin: 3px;
      border-radius: 5px;
-     
-
 }
+
+.book-image{
+     width: 150px;
+     height: 200px;      
+}
+
+img:hover{
+      animation: fadeOut ease 1s;
+}
+@keyframes fadeOut{
+     0% { opacity:1;}
+     100% { opacity:0;};
+}
+
 .style-book{
      text-align: center;
      background-color: rgb(128, 64, 83);
      border: 2px black;
      margin: 5px;
      border-radius: 5px;
-     color: rgb(253, 236, 250)
+     color: rgb(253, 236, 250);
+     perspective: 1000;
+     display: inline-block;
 }
+
 
 </style>
