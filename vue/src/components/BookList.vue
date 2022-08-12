@@ -53,6 +53,7 @@ export default {
 </script>
 
 <style scoped>
+
 div {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -84,20 +85,20 @@ div {
     max-width: 70vw;
     overflow: auto;
     max-height: 40vh;
-    background-color: rgb(40, 134, 126);
+    background-color: rgb(66, 107, 182);
       
 }
 ::-webkit-scrollbar{
      width: 10px;
-     background: rgb(40, 134, 126);
+     background: rrgb(66, 107, 182);
 }
 ::-webkit-scrollbar-thumb{
      border-radius: 10px;
-     background: rgb(37, 121, 114);
+     background: rgb(56, 90, 153);
 }
 
     .my-books{
-         background-color:rgb(40, 134, 126);
+         background-color:rgb(66, 107, 182);
          text-align: center;
          border: solid 2px black;
     } 

@@ -71,7 +71,7 @@ img:hover{
 
 .style-book{
      text-align: center;
-     background-color: rgb(40, 136, 120);
+     background-color: rgb(66, 107, 182);
      border: 2px black;
      margin: 5px;
      border-radius: 5px;

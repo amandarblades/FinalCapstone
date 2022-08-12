@@ -1,11 +1,11 @@
 <template>
   <div id="app">  
     <div id="nav">
-      <router-link class="nav-button" v-bind:to="{ name: 'home' }" tag="button" style="background-color: teal">My Library</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" tag="button" style="background-color: teal">Logout</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: teal">Family Library</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: teal">Prizes</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: teal">Log Activity</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'home' }" tag="button" style="background-color: rgb(28, 80, 104)">My Library</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" tag="button" style="background-color: rgb(28, 80, 104)">Logout</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: rgb(28, 80, 104)">Family Library</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: rgb(28, 80, 104)">Prizes</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: rgb(28, 80, 104)">Log Activity</router-link>
     </div>
     <!-- <img id="book-image" src="transparentBook.png" alt="a book background" /> -->
     <router-view />
@@ -16,7 +16,7 @@
 #app{
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
      /* background-color: rgb(117, 62, 92); */
-     background-color: rgb(117, 57, 122);
+     background-color: rgb(28, 80, 104);
      display: flex;
      flex-direction: column;
      justify-items: center;
@@ -24,7 +24,7 @@
 }
 #nav{
      display: flex;
-     background-color: rgb(143, 114, 146);
+     background-color: rgb(66, 107, 182);
      justify-content: space-around;
      padding: 10px;
      min-width: 100%;
