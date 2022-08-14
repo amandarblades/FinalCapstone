@@ -41,30 +41,22 @@ public class JdbcActivityDao implements ActivityDao {
         return returnList;
     }
 
-    public List<Activity> getChildActivities(String username){
+    public List<Activity> getActivitiesByFamily(String username){
         List<Activity> returnList = new ArrayList<>();
-        String sql = "SELECT * FROM activity_log where user_id = (select user_id from users where username = ?); ";
+        String sql = "SELECT username, title, description, minutes_read, notes  " +
+                "FROM activity_log al JOIN users u ON u.user_id = al.user_id  " +
+                "JOIN book b ON b.id = al.book_id  " +
+                "JOIN format f ON f.id = al.format_id " +
+                "WHERE (al.user_id IN " +
+                "(SELECT user_id FROM user_family WHERE family_id = (SELECT id FROM family_unit WHERE family_name =  " +
+                "(SELECT family_name FROM family_unit WHERE id = (SELECT family_id from user_family WHERE user_id =  " +
+                "(SELECT user_id from users WHERE username = ?))))));";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
         while(results.next()){
             returnList.add(mapRowToActivity(results));
         }
 
-        return returnList;
-    }
-
-    public List<Activity> getActivitiesByFamily(){
-        List<Activity> returnList = new ArrayList<>();
-        String sql = "SELECT u.username, b.title, f.description, al.minutes_read, al.notes  " +
-                "FROM activity_log al JOIN users u ON u.user_id = al.user_id  " +
-                "JOIN book b ON b.id = al.book_id  " +
-                "JOIN format f ON f.id = al.format_id " +
-                "WHERE (al.user_id IN " +
-                "(SELECT user_id FROM user_family WHERE family_id = (SELECT id FROM family_unit WHERE  family_name =  " +
-                "(SELECT family_name FROM family_unit WHERE id = (SELECT family_id from user_family WHERE user_id =  " +
-                "(SELECT user_id from users WHERE username = ?))))));";
-
-        System.out.println(sql);
         return returnList;
     }
 
@@ -85,7 +77,10 @@ public class JdbcActivityDao implements ActivityDao {
         activity.setUserID(rs.getInt("user_id"));
         activity.setFormatID(rs.getInt("format_id"));
         activity.setMinutesRead(rs.getInt("minutes_read"));
-        activity.setNotes("notes");
+        activity.setNotes(rs.getString("notes"));
+        activity.setUsername(rs.getString("username"));
+        activity.setTitle(rs.getString("title"));
+        activity.setDescription(rs.getString("description"));
         return activity;
     }
 }

@@ -10,6 +10,7 @@ public class Activity {
     private String notes;
     private String title;
     private String description;
+    private String username;
 
     public String getTitle() {
         return title;
@@ -75,6 +76,14 @@ public class Activity {
         this.notes = notes;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public Activity(){
 
     }
@@ -96,5 +105,17 @@ public class Activity {
         this.notes = notes;
         this.title = title;
         this.description = description;
+    }
+
+    public Activity(int activityID, int bookID, int userID, int formatID, int minutesRead, String notes, String title, String description, String username) {
+        this.activityID = activityID;
+        this.bookID = bookID;
+        this.userID = userID;
+        this.formatID = formatID;
+        this.minutesRead = minutesRead;
+        this.notes = notes;
+        this.title = title;
+        this.description = description;
+        this.username = username;
     }
 }

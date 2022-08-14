@@ -10,9 +10,7 @@ public interface ActivityDao {
 
     public List<Activity> getActivitiesByUsername(String username);
 
-    public List<Activity> getChildActivities(String username);
-
-    public List<Activity> getActivitiesByFamily();
+    public List<Activity> getActivitiesByFamily(String username);
 
     public void updateActivity();
 
