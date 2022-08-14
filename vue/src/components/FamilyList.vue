@@ -1,6 +1,6 @@
 <template>
   <div class="my-family">
-      <h2>The {{this.family.name}} Family Book Collection</h2>
+      <h2>The {{family.name}} Family Book Collection</h2>
       <div class="members">
            <table class="family">
          <thead>
@@ -20,11 +20,7 @@
          </tbody>
                        
     </table>
-     <div v-on:submit.prevent="addUserToFamily" class="add-user-family-form">
-                    <label for="Username" >Add a Family Member:</label>
-                    <input type="text" id="userToAdd" v-model="family.user"/>
-                    <button type="submit">Add</button>
-               </div>
+     
       </div>
      <user> </user>
   </div>
