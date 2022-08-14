@@ -15,7 +15,12 @@ export default {
   name: "add-new-family",
   props: [
     'family'
-  ]
+  ],
+  methods:{
+    createFamily(){
+      
+    }
+  }
   
 
 }
