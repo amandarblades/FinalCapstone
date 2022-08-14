@@ -33,12 +33,13 @@ export default {
     }
     },
     methods: {
-         addFamily(name){
-              FamilyService.createFamily(name)
-              .then((response) =>
-              this.$store.commit("SET_FAMILY_NAME", response.data));
-              window.location.reload();
-         },
+     //     addFamily(name){
+     //          window.alert("FIRE FIRE FIRE");
+     //          FamilyService.createFamily(name)
+     //          .then((response) =>{
+     //          this.$store.commit("SET_FAMILY_NAME", response.data);
+     //          window.location.reload()});
+         
          addUserToFamily(){
               FamilyService.addUserToFamily(this.family.name, this.user)
               .then(( response) => 

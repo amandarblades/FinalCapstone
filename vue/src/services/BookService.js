@@ -5,7 +5,7 @@ export default {
         return axios.get(`/addbook/${isbn}`);
     },
     getBookList() {
-        return axios.get(`/books`)
+        return axios.get(`/books`);
     }
     
 }

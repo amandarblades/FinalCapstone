@@ -4,7 +4,7 @@
     <form action="">
       <label for="name" >Update Family Name: </label>
       <input type="text" v-model="familyName"/>
-      <button @click="newFamily(familyName)" type="submit">Submit</button>
+      <button @click="addFamily(familyName)" type="submit">Submit</button>
     </form>
 
    
@@ -19,21 +19,29 @@ export default {
   data(){
        return {
             family: [
-                 {
-                      user: ''
-                 }
-            ]
+      {
+        name: '',
+        user: {
+             userID: 0 ,
+             username: '',
+             minutesRead: '', 
+             currentBook: '',
+             displayName: ''
+        }
+      }
+    ]
             }
        },
-//   props: [
-//     'family'
-//   ],
+  // props: [
+  //   'family'
+  // ],
   methods: {
-    newFamily(familyName){
+    addFamily(familyName){
+      window.alert("ADD NEW FAMILY");
       FamilyService.createFamily(familyName)
       .then((response) =>{
-        this.$store.commit("SET_FAMILY", response.data)
-        window.location.reload
+        this.$store.commit("SET_FAMILY_NAME", response.data);
+        window.location.reload();
       });
 
     }
