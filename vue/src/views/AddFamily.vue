@@ -6,7 +6,7 @@
            <add-new-family v-show="isUpdating"></add-new-family>
       
       <div>
-          <family-list></family-list>
+          <family-list class="style-test"></family-list>
       </div>
       
   </div>
@@ -15,15 +15,36 @@
 
 <script>
 import AddNewFamily from "@/components/AddNewFamily.vue"
+import familyList from "@/components/FamilyList.vue"
+import FamilyService from "@/services/FamilyService.js"
+
 export default {
     name: "add-family",
     components:{
-        AddNewFamily
+        AddNewFamily,
+        familyList
     },
+    props: [
+         "user"
+    ],
     data() {
          return{
          isUpdating: false
     }
+    },
+    methods: {
+         addFamily(name){
+              FamilyService.createFamily(name)
+              .then((response) =>
+              this.$store.commit("SET_FAMILY_NAME", response.data));
+              window.location.reload();
+         },
+         addUserToFamily(){
+              FamilyService.addUserToFamily(this.family.name, this.user)
+              .then(( response) => 
+              this.$store.commit("SET_FAMILY_MEMBER", response.data));
+              window.location.reload();
+         }
     }
 }
 </script>
@@ -50,6 +71,9 @@ export default {
   position: relative;
   transition: opacity 0.3s linear 0s;
   background-color: rgb(19, 62, 80)
+}
+.style-test{
+     
 }
 
 

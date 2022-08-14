@@ -39,7 +39,14 @@ export default new Vuex.Store({
     ],
     family: [
       {
-        user: '',
+        name: '',
+        user: {
+             userID: 0 ,
+             username: '',
+             minutesRead: '', 
+             currentBook: '',
+             displayName: ''
+        }
       }
     ]
   },
@@ -66,8 +73,11 @@ export default new Vuex.Store({
     SET_CURRENT_USER_BOOKS(state, data){
       state.books = data;
     },
-    SET_FAMILY(state, data){
-      state.family = data;
+    SET_FAMILY_NAME(state, data){
+      state.family.name = data;
+    },
+    SET_FAMILY_MEMBER(state, data){
+         state.family.push(data);
     }
   }
 })

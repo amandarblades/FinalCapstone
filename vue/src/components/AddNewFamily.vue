@@ -7,7 +7,7 @@
       <button @click="newFamily(familyName)" type="submit">Submit</button>
     </form>
 
-    <table></table>
+   
   </div>
 </template>
 
@@ -16,9 +16,18 @@ import FamilyService from '@/services/FamilyService'
 
 export default {
   name: "add-new-family",
-  props: [
-    'family'
-  ],
+  data(){
+       return {
+            family: [
+                 {
+                      user: ''
+                 }
+            ]
+            }
+       },
+//   props: [
+//     'family'
+//   ],
   methods: {
     newFamily(familyName){
       FamilyService.createFamily(familyName)
@@ -29,8 +38,6 @@ export default {
 
     }
   }
-  
-
 }
 </script>
 
@@ -39,5 +46,7 @@ img{
      max-width: 100vw;
      max-height: 80vh;
 }
+
+
 
 </style>

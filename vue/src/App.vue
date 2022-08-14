@@ -68,6 +68,7 @@
   padding: 0 42px;
   position: relative;
   transition: opacity 0.3s linear 0s;
+  overflow: visible;
 }
 
 #BW{
