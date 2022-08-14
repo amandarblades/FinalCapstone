@@ -9,6 +9,7 @@ CREATE TABLE users (
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
 	current_book_id int,
+	minutes_read int,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 

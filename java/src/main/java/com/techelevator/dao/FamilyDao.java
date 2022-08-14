@@ -11,7 +11,8 @@ public interface FamilyDao {
 
     public void addFamilyMember(String username, String currentUser);
 
-    public List<User> returnAllFamilyMembers(int familyID);
+    public List<User> returnAllFamilyMembers(String username);
 
     public void removeFamilyMember(String username, String currentUser);
+
 }

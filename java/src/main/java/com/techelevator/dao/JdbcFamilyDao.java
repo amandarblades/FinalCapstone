@@ -40,9 +40,17 @@ public class JdbcFamilyDao implements FamilyDao {
     }
 
     @Override
-    public List<User> returnAllFamilyMembers(int familyID){
+    public List<User> returnAllFamilyMembers(String username){
         List<User> users = new ArrayList<>();
+        String sql = "SELECT username, minutes_read FROM users " +
+                "WHERE user_id IN (SELECT user_id FROM user_family WHERE  " +
+                "family_id = (SELECT family_id FROM user_family WHERE " +
+                "user_id = (SELECT user_id FROM users WHERE username = ?)));";
 
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
+        while ((results.next())){
+            users.add(mapRowToUser(results));
+        }
 
         return users;
     }
@@ -65,6 +73,13 @@ public class JdbcFamilyDao implements FamilyDao {
         family.setFamilyID(rs.getInt("id"));
         family.setFamilyName(rs.getString("family_name"));
         return family;
+    }
+
+    public User mapRowToUser(SqlRowSet rs){
+        User user = new User();
+        user.setUsername(rs.getString("username"));
+        user.setMinutesRead(rs.getInt("minutes_read"));
+        return user;
     }
 
 }
