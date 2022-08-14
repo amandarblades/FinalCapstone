@@ -45,7 +45,7 @@ public class ActivityController {
         return activities;
     }
 
-    @RequestMapping(value = "getchildactivities", method = RequestMethod.GET)
+    @RequestMapping(value = "/getchildactivities", method = RequestMethod.GET)
     public List<Activity> getChildActivities(String username){
         List<Activity> activities = new ArrayList<>();
         activities = activityDao.getActivitiesByUsername(username);
