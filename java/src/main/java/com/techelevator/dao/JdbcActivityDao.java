@@ -31,7 +31,11 @@ public class JdbcActivityDao implements ActivityDao {
 
     public List<Activity> getActivitiesByUsername(String username){
         List<Activity> returnList = new ArrayList<>();
-        String sql = "SELECT * FROM activity_log where user_id = (select user_id from users where username = ?); ";
+        String sql = "SELECT username, title, description, minutes_read, notes  " +
+                "FROM activity_log al JOIN users u ON u.user_id = al.user_id  " +
+                "JOIN book b ON b.id = al.book_id  " +
+                "JOIN format f ON f.id = al.format_id " +
+                "WHERE al.user_id = (SELECT user_id from users WHERE username = ?);";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
         while(results.next()){
@@ -69,8 +73,19 @@ public class JdbcActivityDao implements ActivityDao {
     public void deleteActivity(){
 
     }
-
     public Activity mapRowToActivity(SqlRowSet rs){
+        Activity activity = new Activity();
+        activity.setMinutesRead(rs.getInt("minutes_read"));
+        activity.setUsername(rs.getString("username"));
+        activity.setTitle(rs.getString("title"));
+        activity.setDescription(rs.getString("description"));
+       if(rs.getString("notes")!=null) {
+           activity.setNotes(rs.getString("notes"));
+       }
+        return activity;
+    }
+
+/*    public Activity mapRowToActivity(SqlRowSet rs){
         Activity activity = new Activity();
         activity.setActivityID(rs.getInt("id"));
         activity.setBookID(rs.getInt("book_id"));
@@ -82,5 +97,5 @@ public class JdbcActivityDao implements ActivityDao {
         activity.setTitle(rs.getString("title"));
         activity.setDescription(rs.getString("description"));
         return activity;
-    }
+    }*/
 }
