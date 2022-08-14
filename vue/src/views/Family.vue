@@ -7,9 +7,10 @@
       
       <div>
           <family-list class="style-test"></family-list>
+
       </div>
-      
   </div>
+  <add-member-to-family ></add-member-to-family >
     </div>
 </template>
 
@@ -17,12 +18,14 @@
 import AddNewFamily from "@/components/AddNewFamily.vue"
 import familyList from "@/components/FamilyList.vue"
 import FamilyService from "@/services/FamilyService.js"
+import addMemberToFamily from "@/components/AddMemberToFamily.vue"
 
 export default {
     name: "add-family",
     components:{
         AddNewFamily,
-        familyList
+        familyList,
+        addMemberToFamily
     },
     props: [
          "user"
@@ -40,8 +43,8 @@ export default {
      //          this.$store.commit("SET_FAMILY_NAME", response.data);
      //          window.location.reload()});
          
-         addUserToFamily(){
-              FamilyService.addUserToFamily(this.family.name, this.user)
+         addMemberToFamily(){
+              FamilyService.addMemberToFamily(this.family.name, this.user)
               .then(( response) => 
               this.$store.commit("SET_FAMILY_MEMBER", response.data));
               window.location.reload();

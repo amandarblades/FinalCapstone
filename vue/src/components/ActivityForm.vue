@@ -1,7 +1,7 @@
 <template>
   <div>
-      <form >
-          <div>
+      <form>
+          <div class="library-card">
             <h2>Log your minutes!</h2>
              <input type="text" name="minutes" id="logged-minutes">
           </div>
@@ -42,5 +42,8 @@ form>div>h5{
     color: whitesmoke;
     margin-bottom: 0px;
 }
+/* .library-card{
+     background: color url('library-card.png');
+} */
 
 </style>

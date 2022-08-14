@@ -16,11 +16,8 @@
                    <td>{{user.currentBook}}</td><!--  -- need to add current book and total mins read to a user; also could have display name-- -->
                    <td>{{user.totalMins}}</td>
               </tr>
-              
          </tbody>
-                       
     </table>
-     
       </div>
      <user> </user>
   </div>
@@ -32,14 +29,15 @@ import User from '@/components/User.vue'
 
 export default {
     name: 'family-list',
-    data(){
-         return{
-        family: [
-             {name: '',
-             user: []}
-        ]
-    }
-    },
+    props: ['family'],
+//     data(){
+//          return{
+//         family: [
+//              {name: '',
+//              user: []}
+//         ]
+//     }
+//     },
     components :{
          User
     }
