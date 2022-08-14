@@ -9,4 +9,6 @@ INSERT INTO user_book (user_id, book_id) VALUES (3, 2);
 INSERT INTO user_book (user_id, book_id) VALUES (3, 4);
 INSERT INTO user_book (user_id, book_id) VALUES (3, 5);
 
+
+
 COMMIT TRANSACTION;
