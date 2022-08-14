@@ -43,7 +43,7 @@ public class BookAPIController {
         returnBook.setIsbn(ISBN);
         returnBook.setImgURL("https://covers.openlibrary.org/b/isbn/" + ISBN + "-M.jpg");
 
-        String username = "Nate"; //getCurrentUsername(principal);
+        String username = getCurrentUsername(principal);
 
         bookDao.addBookToUser(returnBook, username);
 

@@ -73,9 +73,7 @@ export default {
   transition: opacity 0.3s linear 0s;
   background-color: rgb(19, 62, 80)
 }
-.style-test{
-     
-}
+
 
 
 </style>

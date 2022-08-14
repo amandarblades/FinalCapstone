@@ -36,7 +36,7 @@ public class FamilyController {
 
     @RequestMapping(value = "/removefamilymember/{removedUsername}", method = RequestMethod.DELETE)
     public void removedMemberFromFamily(@PathVariable String removedUsername, Principal principal){
-        String currentUser = "Nate"; //getCurrentUsername(principal);
+        String currentUser = getCurrentUsername(principal);
         familyDao.removeFamilyMember(removedUsername, currentUser);
     }
 

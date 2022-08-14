@@ -5,6 +5,6 @@ export default {
         axios.post(`/addfamily/${familyName}`);
     },
     addUserToFamily(familyName, user){
-         axios.post(`addfamily/${familyName}/${user}`);
+         axios.post(`/addfamilymember/${user}`);
     }
 }

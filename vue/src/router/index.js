@@ -5,7 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-import AddFamily from "@/views/AddFamily.vue"
+import Family from "@/views/Family.vue"
 import AddNewActivity from "@/views/AddNewActivity"
 
 Vue.use(Router)
@@ -65,9 +65,9 @@ const router = new Router({
 
           },
           {
-               path: "/addfamily",
-               name: "add-family",
-               component: AddFamily,
+               path: "/family",
+               name: "family",
+               component: Family,
                meta:{
                     requiresAuth: true
                },
