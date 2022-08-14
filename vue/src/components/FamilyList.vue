@@ -19,27 +19,40 @@
          </tbody>
     </table>
       </div>
-     <user> </user>
+       <user v-bind:family="family" v-for="user in getFamily" v-bind:key="user.username"/> 
   </div>
   
 </template>
 
 <script>
 import User from '@/components/User.vue'
+import FamilyService from '@/services/FamilyService.js'
 
 export default {
     name: 'family-list',
-    props: ['family'],
-//     data(){
-//          return{
-//         family: [
-//              {name: '',
-//              user: []}
-//         ]
-//     }
-//     },
+    
+    data(){
+         return{
+        family: [
+             {name: '',
+             user: []}
+        ]
+    }
+    },
     components :{
          User
+    },
+    computed: {
+        getFamily() {
+            return this.$store.state.Family;
+        }
+    },
+    created(){
+         FamilyService.getFamily()
+         .then(response => {
+              this.family = response.data;
+              
+         })
     }
 }
 </script>

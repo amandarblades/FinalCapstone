@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="container">
       <form>
           <div class="library-card">
             <h2>Log your minutes!</h2>
              <input type="text" name="minutes" id="logged-minutes">
           </div>
-          <div>
+          <div >
               <h5>How did you read today?</h5>
               <select name="read-type" id="type">
                   <option selected disabled>Please Select Type</option>
@@ -42,6 +42,9 @@ form>div>h5{
     color: whitesmoke;
     margin-bottom: 0px;
 }
+/* .container{
+     background-image: url("@/public/libraryCard.png");
+} */
 /* .library-card{
      background: color url('library-card.png');
 } */

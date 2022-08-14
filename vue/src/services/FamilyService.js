@@ -6,5 +6,8 @@ export default {
     },
     addMemberToFamily(user){
          axios.post(`/addfamilymember/${user}`);
+    },
+    getFamily(){
+         axios.get(`/getfamilyusers`);
     }
 }
