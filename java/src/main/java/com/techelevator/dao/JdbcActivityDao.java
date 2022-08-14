@@ -64,9 +64,11 @@ public class JdbcActivityDao implements ActivityDao {
                 "(SELECT family_name FROM family_unit WHERE id = (SELECT family_id from user_family WHERE user_id =  " +
                 "(SELECT user_id from users WHERE username = ?))))));";
 
-
+        System.out.println(sql);
         return returnList;
     }
+
+
 
     public void updateActivity(){
 
