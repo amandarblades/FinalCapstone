@@ -2,13 +2,12 @@
   <div class ="add-family">
 
     <form action="">
-      <label for="name">What would you like to call your Family?</label>
+      <label for="name" >Update Family Name: </label>
       <input type="text" v-model="familyName"/>
       <button @click="newFamily(familyName)" type="submit">Submit</button>
     </form>
 
     <table></table>
-
   </div>
 </template>
 
@@ -35,6 +34,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+img{
+     max-width: 100vw;
+     max-height: 80vh;
+}
 
 </style>

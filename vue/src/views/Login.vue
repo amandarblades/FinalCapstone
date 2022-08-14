@@ -1,6 +1,6 @@
 <template>
   <div id="login" class="text-center" >
-       <img id="book-image" src="Book.png" alt="a book background" />
+       
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
@@ -35,6 +35,9 @@
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <button type="submit">Sign in</button>
     </form>
+    <div class="book-container">
+    <img id="book-image" src="blueTransparentBooks.png" alt="a book background" />
+    </div>
   </div>
 </template>
 
@@ -95,7 +98,7 @@ export default {
      padding: 0px 20px 20px 20px;
      border-radius: 10px;
      box-shadow: 4px -3px 0 0 white, 7px -5px 0 0 #2abbb4;
-     margin-top: -100px;
+     margin-top: -125px;
      
 }
 
@@ -106,6 +109,17 @@ export default {
      position: relative;
      top: 0;
      left: 0;
+
 }
 
+.book-container{
+     background-color: #2abbb4;
+     background: linear-gradient(0deg, rgba(42,187,180,1) 0%, rgba(255,255,255,1) 30%);
+     width: 100vw;
+     height: 90vh;
+     z-index: -2;
+     display: flex;
+     align-items: flex-end;
+     justify-content: flex-end;
+}
 </style>
