@@ -1,22 +1,26 @@
 <template>
+    
   <div id="app">  
     <div id="nav">
-      <router-link class="nav-button" v-bind:to="{ name: 'home' }" tag="button" style="background-color: rgb(28, 80, 104)">My Library</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" tag="button" style="background-color: rgb(28, 80, 104)">Logout</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'add-family' }" tag="button" style="background-color: rgb(28, 80, 104)">Family Library</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: rgb(28, 80, 104)">Prizes</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: rgb(28, 80, 104)">Log Activity</router-link>
+         <div class="logo"><img id="BW" src="favThumbnailBW.png" alt="Bookworm Logo"></div>
+      <router-link class="nav-button" v-bind:to="{ name: 'home' }" tag="button" style="background-color: rgb(11, 34, 44)">My Library</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != '' " tag="button" style="background-color:rgb(11, 34, 44)">Logout</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'add-family' }" tag="button" style="background-color: rgb(11, 34, 44)">Family Library</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: rgb(11, 34, 44)">Prizes</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'add-activity' }" tag="button" style="background-color: rgb(11, 34, 44)" >Log Activity</router-link>
     </div>
-    <!-- <img id="book-image" src="transparentBook.png" alt="a book background" /> -->
+    <!-- <img id="book-image" src="blueTransparentBooks.png" alt="a book background" />  -->
     <router-view />
-  </div>
+
+  </div >
 </template>
+
 
 <style scoped>
 #app{
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
      /* background-color: rgb(117, 62, 92); */
-     background-color: rgb(28, 80, 104);
+     
      display: flex;
      flex-direction: column;
      justify-items: center;
@@ -24,10 +28,12 @@
 }
 #nav{
      display: flex;
-     background-color: rgb(66, 107, 182);
+     /* background-color: rgb(66, 107, 182); */
+     background-color: #2abbb4;
      justify-content: space-around;
      padding: 10px;
      min-width: 100%;
+     max-height: 50px;
      
 }
 /* .nav-button{
@@ -40,12 +46,13 @@
      margin-right: 10px;
      font-size: 20px;
      
-}
+}*/
 .nav-button:hover{
      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
      color: white;
      transition: 0.7s;
-} */
+     font-size: 15px;
+} 
 /*------------------------*/
 
 .nav-button{
@@ -63,33 +70,10 @@
   transition: opacity 0.3s linear 0s;
 }
 
-.nav-button span{
-  left: 0;
-  position: relative;
-  transition: all 0.2s ease-out 0s;
+#BW{
+     height: 118px;
+     border: 2px solid #fff;
+     border-radius: 20px;
 }
-
-.nav-button i{
-  width: 18px;
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  margin-top: -9px;
-  line-height: 18px;
-  opacity: 0;
-  transition: all 0.2s ease-out 0s;
-}
-
-.nav-button:hover span{
-  left: -18px;
-}
-
-.nav-button:hover i{
-  opacity: 1;
-  right: 24px;
-}
-
-
-
 
 </style>

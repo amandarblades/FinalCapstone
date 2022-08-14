@@ -14,11 +14,18 @@ import java.security.Principal;
 @CrossOrigin
 public class ActivityController {
 
-
     @Autowired
     private BookDao bookDao;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private ActivityDao activityDao;
+
+    public ActivityController(ActivityDao activityDao, BookDao bookDao, UserDao userDao){
+        this.bookDao = bookDao;
+        this.userDao = userDao;
+        this.activityDao = activityDao;
+    }
 
     @RequestMapping(value="/addActivity", method = RequestMethod.POST)
     public void logActivity(@Valid @RequestBody Activity newActivity, Principal principal){

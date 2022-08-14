@@ -2,23 +2,31 @@
   <div class ="add-family">
 
     <form action="">
-      <label for="name">What would you like to call your Family?</label>
-      <input type="text">
-      <button type="submit">Submit</button>
+      <label for="name" >Update Family Name: </label>
+      <input type="text" v-model="familyName"/>
+      <button @click="newFamily(familyName)" type="submit">Submit</button>
     </form>
 
+    <table></table>
   </div>
 </template>
 
 <script>
+import FamilyService from '@/services/FamilyService'
+
 export default {
   name: "add-new-family",
   props: [
     'family'
   ],
-  methods:{
-    createFamily(){
-      
+  methods: {
+    newFamily(familyName){
+      FamilyService.createFamily(familyName)
+      .then((response) =>{
+        this.$store.commit("SET_FAMILY", response.data)
+        window.location.reload
+      });
+
     }
   }
   
@@ -26,6 +34,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+img{
+     max-width: 100vw;
+     max-height: 80vh;
+}
 
 </style>
