@@ -34,7 +34,6 @@ public class FamilyController {
     @RequestMapping(value = "/addfamilymember/{addedUsername}", method = RequestMethod.POST)
     public void addMemberToFamily(@PathVariable String addedUsername, Principal principal){
         String currentUser = getCurrentUsername(principal);
-//        String currentUser = "Nate";
         familyDao.addFamilyMember(addedUsername, currentUser);
     }
 
@@ -48,8 +47,8 @@ public class FamilyController {
     public List<User> getFamilyUsers(Principal principal){
         List<User> results = new ArrayList<>();
         if(principal != null) {
-            String userName = getCurrentUsername(principal);
-            results.addAll(familyDao.returnAllFamilyMembers(userName));
+            String username = getCurrentUsername(principal);
+            results.addAll(familyDao.returnAllFamilyMembers(username));
         }
         return results;
     }

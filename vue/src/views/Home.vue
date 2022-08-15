@@ -15,7 +15,6 @@
     <img id="book-image" src="blueTransparentBooks.png" alt="a book background"/>
     </div> -->
     <activity-list></activity-list>
-    <family-list></family-list>
   </div>
   
 </template>
@@ -25,7 +24,7 @@
 import BookList from "@/components/BookList.vue";
 import AddNewBook from "@/components/AddNewBook.vue";
 import ActivityList from "@/components/ActivityList.vue";
-import FamilyList from "@/components/FamilyList.vue"
+
 
 export default {
   name: "home",
@@ -37,8 +36,7 @@ export default {
   components: {
     BookList,
     AddNewBook,
-    ActivityList,
-    FamilyList
+    ActivityList
   }
  
   

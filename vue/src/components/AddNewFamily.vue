@@ -18,18 +18,19 @@ export default {
   name: "add-new-family",
   data(){
        return {
-            family: [
-      {
-        name: '',
-        user: {
-             userID: 0 ,
-             username: '',
-             minutesRead: '', 
-             currentBook: '',
-             displayName: ''
-        }
-      }
-    ]
+         familyName: ''
+    //         family: [
+    //   {
+    //     name: '',
+    //     user: {
+    //          userID: 0 ,
+    //          username: '',
+    //          minutesRead: '', 
+    //          currentBook: '',
+    //          displayName: ''
+    //     }
+    //   }
+    // ]
             }
        },
   // props: [
@@ -37,7 +38,7 @@ export default {
   // ],
   methods: {
     addFamily(familyName){
-      window.alert("ADD NEW FAMILY");
+      window.alert("ADDED NEW FAMILY");
       FamilyService.createFamily(familyName)
       .then((response) =>{
         this.$store.commit("SET_FAMILY_NAME", response.data);
