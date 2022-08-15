@@ -10,5 +10,8 @@ export default {
   },
   getFamilyActivities(){
        return axios.get(`/getfamilyactivities`);
+  },
+  getUserActivities(){
+    return axios.get(`/getactivities`);
   }
 }

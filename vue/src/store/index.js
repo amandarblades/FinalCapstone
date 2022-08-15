@@ -45,18 +45,37 @@ export default new Vuex.Store({
         imgURL: ''
       }
     ],
-    family: [
+    activities: [
       {
-        name: '',
-        user: {
-             userID: 0 ,
-             username: '',
-             minutesRead: '', 
-             currentBook: '',
-             displayName: ''
-        }
+        title: 'Dracula',
+        description: '',   
+        minutesRead: 0,
+        notes: '',
+        username: ''
+      },
+    ],
+    familyUser: {
+      username: '',
+      minutesRead:0
+    },
+    familyUsers: [
+      {
+        username: '',
+        minutesRead:0
       }
     ]
+    // family: [
+    //   {
+    //     name: '',
+    //     user: {
+    //          userID: 0 ,
+    //          username: '',
+    //          minutesRead: '', 
+    //          currentBook: '',
+    //          displayName: ''
+    //     }
+    //   }
+    // ]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -84,14 +103,17 @@ export default new Vuex.Store({
     SET_FAMILY_NAME(state, data){
       state.family.name = data;
     },
-    SET_FAMILY_MEMBER(state, data){
-         state.family.push(data);
+    SET_FAMILY_MEMBERS(state, data){
+         state.familyUsers = data;
     },
-    ADD_ACTIVITY(state, data){
-         state.activity.push(data)
-    },
+    // ADD_ACTIVITY(state, data){
+    //      state.activity.push(data)
+    // },
     SET_ACTIVITY(state, data){
          state.activity = data;
+    },
+    SET_CURRENT_ACTIVITIES(state, data){
+        state.activities = data;
     }
   }
 })

@@ -40,7 +40,7 @@ public class ActivityController {
     @RequestMapping(value="/getactivities", method = RequestMethod.GET)
     public List<Activity> getUserActivities(Principal principal){
         List<Activity> activities = new ArrayList<>();
-        String username = getCurrentUsername(principal);
+        String username = "Nate"; //getCurrentUsername(principal);
          activities = activityDao.getActivitiesByUsername(username);
         return activities;
     }
@@ -55,7 +55,7 @@ public class ActivityController {
     @RequestMapping(value = "/getfamilyactivities", method = RequestMethod.GET)
     public List<Activity> getFamilyActivities(Principal principal){
         List<Activity> activities = new ArrayList<>();
-        String username = getCurrentUsername(principal);
+        String username = "Nate"; //getCurrentUsername(principal);
         activities = activityDao.getActivitiesByFamily(username);
         return activities;
     }

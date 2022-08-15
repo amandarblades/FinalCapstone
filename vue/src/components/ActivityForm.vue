@@ -68,7 +68,8 @@ export default {
        window.alert("Activity Saved!"),
        window.location.reload();
        ActivityService.postActivity(newActivity).then((response) => {
-        this.$store.commit("ADD_ACTIVITY", response.data);
+         window.alert("Test");
+        this.$store.commit("SET_ACTIVITY", response.data);
       });
     },
   },
