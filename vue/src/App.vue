@@ -1,7 +1,7 @@
 <template>
     
   <div id="app">  
-    <div id="nav">
+    <div id="nav" >
          <div class="logo"><img id="BW" src="favThumbnailBW.png" alt="Bookworm Logo"></div>
       <router-link class="nav-button" v-bind:to="{ name: 'home' }" tag="button" style="background-color: rgb(11, 34, 44)">My Library</router-link>
       <router-link class="nav-button" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != '' " tag="button" style="background-color:rgb(11, 34, 44)">Logout</router-link>
@@ -65,7 +65,7 @@
   border: 2px solid #fff;
   border-radius: 3px;
   box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
-  padding: 0 42px;
+  padding: 0 20px;
   position: relative;
   transition: opacity 0.3s linear 0s;
   overflow: visible;
@@ -73,8 +73,9 @@
 
 #BW{
      height: 118px;
-     border: 2px solid #fff;
+     border: 5px solid #fff;
      border-radius: 20px;
+
 }
 
 </style>

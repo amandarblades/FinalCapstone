@@ -5,10 +5,10 @@
       <button  id="add-family" @click="isUpdating= !isUpdating">{{isUpdating ? 'Discard Changes' : 'Update Family'}}</button>
            <add-new-family v-show="isUpdating"></add-new-family>
       
-      <div>
-          <family-list class="style-test"></family-list>
+      
+          <family-list></family-list>
 
-      </div>
+      
   </div>
   <add-member-to-family ></add-member-to-family >
     </div>

@@ -18,6 +18,14 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+     activity: {
+       title: '',
+       description: '',   
+       minutesRead: 0,
+       notes: '',
+       username: ''
+     },
+
     token: currentToken || '',
     user: currentUser || {},
 
@@ -78,6 +86,12 @@ export default new Vuex.Store({
     },
     SET_FAMILY_MEMBER(state, data){
          state.family.push(data);
+    },
+    ADD_ACTIVITY(state, data){
+         state.activity.push(data)
+    },
+    SET_ACTIVITY(state, data){
+         state.activity = data;
     }
   }
 })

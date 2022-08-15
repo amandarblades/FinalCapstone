@@ -32,7 +32,7 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      <router-link :to="{ name: 'register' }" class="link">Need an account?</router-link>
       <button type="submit">Sign in</button>
     </form>
     <div class="book-container">
@@ -81,7 +81,7 @@ export default {
 
 <style scoped>
 #login{
-     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     font-family:  'Montserrat', sans-serif;
      background-size:auto;
      display: flex;
      flex-direction: column;
@@ -89,7 +89,10 @@ export default {
      justify-content: center;
 
 }
-
+.link{
+     padding: 3px;
+     margin-top: 2px;
+}
 .form-signin{
      display: flex;
      flex-direction: column;
@@ -100,6 +103,9 @@ export default {
      box-shadow: 4px -3px 0 0 white, 7px -5px 0 0 #2abbb4;
      margin-top: -125px;
      
+}
+label{
+     padding: 5px;
 }
 
 #book-image{
@@ -121,5 +127,27 @@ export default {
      display: flex;
      align-items: flex-end;
      justify-content: flex-end;
+}
+button {
+      font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
+  padding: 10px;
+  width: 100;
+  /* position: relative; */
+  transition: opacity 0.3s linear 0s;
+  background-color: rgb(19, 62, 80);
+ margin: 10px;
+}
+
+button:hover 
+{
+     transform: skewX(-20deg);
+     transition: 0.7s;
 }
 </style>

@@ -1,10 +1,8 @@
 <template>
   <div id="register" class="text-center">
 
-<img id="book-image" src="Book.png" alt="a book background" />
-
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <h2 class="h3 mb-3 font-weight-normal">Create Account</h2>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -37,11 +35,14 @@
       />
       <label for="isAdmin">If you are a parent, click here: </label>
       <input type="checkbox" id="isAdmin" v-on:click="user.role='admin'">
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <router-link :to="{ name: 'login' }" class='link'>Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
     </form>
+    <div class="book-container">
+    <img id="book-image" src="blueTransparentBooks.png" alt="a book background" />
+    </div>
   </div>
 </template>
 
@@ -97,31 +98,70 @@ export default {
 
 <style scoped>
 #register{
-     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     font-family: 'Montserrat', sans-serif;
      background-size:auto;
      display: flex;
      flex-direction: column;
      align-items: center;
      justify-content: center;
+     color: whitesmoke;
 }
-
+.link{
+     color: #2abbb4
+}
 .form-register{
      display: flex;
      flex-direction: column;
      position: absolute;
-     background-color: #FFB997;    
+     background-color: rgb(64, 56, 122);    
      padding: 0px 20px 20px 20px;
      border-radius: 10px;
-     box-shadow: 4px -3px 0 0 white, 7px -5px 0 0 #FFB997;
+     box-shadow: 4px -3px 0 0 white, 7px -5px 0 0 rgb(64, 56, 122);
      margin-top: -175px;
      
 }
+
 #book-image{
-     background-repeat: no-repeat;
-     background-position: bottom right;
-     position: absolute;
-     max-width: 100%;
-     max-height: 100%;
+     Max-width: 50em;
+     max-height: 50em;
+     z-index: -1;
+     position: relative;
+     top: 0;
+     left: 0;
+
 }
+
+.book-container{
+     background: linear-gradient(0deg, #2abbb4 0%, rgba(255,255,255,1) 30%);
+     width: 100vw;
+     height: 90vh;
+     z-index: -2;
+     display: flex;
+     align-items: flex-end;
+     justify-content: flex-end;
+}
+button {
+      font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
+  padding: 10px;
+  width: 100;
+  /* position: relative; */
+  transition: opacity 0.3s linear 0s;
+  background-color: rgb(19, 62, 80);
+ margin: 10px;
+}
+
+button:hover 
+{
+     transform: skewX(-20deg);
+     transition: 0.7s;
+}
+
 
 </style>
