@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class JdbcActivityDao implements ActivityDao {
+public class JdbcActivityDao implements ActivityDAO {
 
     private final JdbcTemplate jdbcTemplate;
     public JdbcActivityDao(JdbcTemplate jdbcTemplate){this.jdbcTemplate = jdbcTemplate;}

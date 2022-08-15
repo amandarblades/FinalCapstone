@@ -1,6 +1,6 @@
 package com.techelevator.controller;
 
-import com.techelevator.dao.ActivityDao;
+import com.techelevator.dao.ActivityDAO;
 import com.techelevator.dao.BookDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Activity;
@@ -21,9 +21,9 @@ public class ActivityController {
     @Autowired
     private UserDao userDao;
     @Autowired
-    private ActivityDao activityDao;
+    private ActivityDAO activityDao;
 
-    public ActivityController(ActivityDao activityDao, BookDao bookDao, UserDao userDao){
+    public ActivityController(ActivityDAO activityDao, BookDao bookDao, UserDao userDao){
         this.bookDao = bookDao;
         this.userDao = userDao;
         this.activityDao = activityDao;
