@@ -15,8 +15,8 @@
 <script>
 import AddNewFamily from "@/components/AddNewFamily.vue";
 import FamilyList from "@/components/FamilyList.vue";
-// import FamilyService from "@/services/FamilyService.js"
 import addMemberToFamily from "@/components/AddMemberToFamily.vue";
+//import FamilyService from "@/services/FamilyService.js";
 
 export default {
   name: "add-family",
@@ -47,7 +47,19 @@ export default {
   //          this.$store.commit("SET_FAMILY_MEMBER", response.data));
   //          window.location.reload();
   //     }
-  //     }
+  //     },
+  created() {
+
+    //FAMILY SERICE WTF
+
+    let famTempArray =       [
+        {username: "Bob", minutesRead: 10},
+        {username: "Mary", minutesRead: 10},
+        {username: "Jake", minutesRead: 10}
+      ];
+
+    this.$store.commit('SET_FAMILY_MEMBERS', famTempArray);
+  }
 };
 </script>
 

@@ -14,6 +14,13 @@ import BookService from '@/services/BookService.js';
 
 export default {
   name: "search-form",
+  data() {
+    return (
+    {
+      isbnToSearch: ""
+      }
+    )
+  },
   props: ["book"],
   methods: {
     retrieveBookByIsbn(isbn) {

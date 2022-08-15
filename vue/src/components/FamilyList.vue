@@ -1,9 +1,9 @@
 <template>
   <div class="my-family">
-    <h2>The {{ family.name }} Family Book Collection</h2>
+    <h2>My Family Book Collection</h2>
     <div class="members">
       <div class="member">
-        <user v-bind:familyUser="familyUser" v-for="familyUser in getMembers" v-bind:key="familyUser.username"></user>
+        <user v-for="member in getMembers" v-bind:key="member.id" v-bind:familyUser="member" ></user>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
 
 <script>
 import User from "@/components/User.vue";
-import FamilyService from "@/services/FamilyService.js";
+//import FamilyService from "@/services/FamilyService.js";
 
 export default {
   name: "family-list",
@@ -50,16 +50,20 @@ export default {
   },
   computed: {
     getMembers() {
+      // TODO: RICH DEBUG COMMENT_OUT 
       return this.$store.state.familyUsers;
+
+
     },
   },
-  created() {
+  // R.SEEDS COMMENT BLOCK 15:55
+/*   created() {
     FamilyService.getFamily().then((response) => {
       window.alert("IT WORKS!");
       this.familyUsers = response.data;
       this.$store.commit("SET_FAMILY_MEMBERS", response.data);
     });
-  },
+  }, */
 };
 </script>
 

@@ -32,7 +32,7 @@ const router = new Router({
                }
           },
           {
-               path: "/",
+               path: "/login",
                name: "login",
                component: Login,
                meta: {
