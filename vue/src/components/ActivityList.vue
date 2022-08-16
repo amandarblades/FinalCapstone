@@ -3,7 +3,10 @@
     <h2>My Activities</h2>
     <div class="activities">
         <div class="activity" >
+            
             <activity-card v-bind:activity="activity" v-for="activity in getActivities" v-bind:key="activity.username"></activity-card>
+            
+            
         </div>
     </div>
   </div>
@@ -50,6 +53,10 @@ export default {
 div {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
      color: gray
+}
+.activity{
+     display: flex;
+     flex-direction: column;
 }
 
 </style>

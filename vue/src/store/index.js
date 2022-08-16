@@ -34,7 +34,7 @@ export default new Vuex.Store({
       author: '',
       status: '',
       isbn: '',
-      imgURL: ''
+      imgURL: '@/public/darkGreyThumbnailBW.png'
       },
     books: [
        {
@@ -42,7 +42,7 @@ export default new Vuex.Store({
         author: '',
         status: '',
         isbn: '',
-        imgURL: ''
+        imgURL: '@/public/darkGreyThumbnailBW.png'
       }
     ],
     activities: [
