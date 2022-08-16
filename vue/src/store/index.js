@@ -12,21 +12,21 @@ Vue.use(Vuex)
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
 
-if(currentToken != null) {
+if (currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
 }
 
 export default new Vuex.Store({
   state: {
-     activity: {
-       id: 0,
-       title: '',
-       description: '',   
-       minutesRead: 0,
-       dateCompleted: '',
-       notes: '',
-       username: ''
-     },
+    activity: {
+      id: 0,
+      title: '',
+      description: '',
+      minutesRead: 0,
+      dateCompleted: '',
+      notes: '',
+      username: ''
+    },
 
     token: currentToken || '',
     user: currentUser || {},
@@ -37,9 +37,9 @@ export default new Vuex.Store({
       status: '',
       isbn: '',
       imgURL: '@/public/darkGreyThumbnailBW.png'
-      },
+    },
     books: [
-       {
+      {
         title: '',
         author: '',
         status: '',
@@ -51,7 +51,7 @@ export default new Vuex.Store({
       {
         id: 0,
         title: '',
-        description: '',   
+        description: '',
         minutesRead: 0,
         dateCompleted: '',
         notes: '',
@@ -60,15 +60,42 @@ export default new Vuex.Store({
     ],
     familyUser: {
       username: '',
-      minutesRead:0
+      minutesRead: 0
     },
     familyUsers: [
       {
         username: '',
-        minutesRead:0
+        minutesRead: 0
       }
     ],
-    familyName: ''
+    familyName: '',
+    prize: {
+      prizeID: 0,
+      prizeName: '',
+      startDate: '',
+      endDate: '',
+      maxPrize: 0,
+      milestone: 0,
+      description: '',
+      userRole: '',
+      numOfPrizeWinners: 0,
+      isActive: true
+
+    },
+    prizes: [
+      {
+        prizeID: 0,
+        prizeName: '',
+        startDate: '',
+        endDate: '',
+        maxPrize: 0,
+        milestone: 0,
+        description: '',
+        userRole: '',
+        numOfPrizeWinners: 0,
+        isActive: true
+      }
+    ]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -78,7 +105,7 @@ export default new Vuex.Store({
     },
     SET_USER(state, user) {
       state.user = user;
-      localStorage.setItem('user',JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user));
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
@@ -90,23 +117,26 @@ export default new Vuex.Store({
     SET_CURRENT_BOOK(state, data) {
       state.book = data;
     },
-    SET_CURRENT_USER_BOOKS(state, data){
+    SET_CURRENT_USER_BOOKS(state, data) {
       state.books = data;
     },
-    SET_FAMILY_NAME(state, data){
+    SET_FAMILY_NAME(state, data) {
       state.familyName = data;
     },
-    SET_FAMILY_MEMBERS(state, data){
-         state.familyUsers = data;
+    SET_FAMILY_MEMBERS(state, data) {
+      state.familyUsers = data;
     },
     // ADD_ACTIVITY(state, data){
     //      state.activity.push(data)
     // },
-    SET_ACTIVITY(state, data){
-         state.activity = data;
+    SET_ACTIVITY(state, data) {
+      state.activity = data;
     },
-    SET_CURRENT_ACTIVITIES(state, data){
-        state.activities = data;
+    SET_CURRENT_ACTIVITIES(state, data) {
+      state.activities = data;
+    },
+    SET_PRIZE(state, data) {
+      state.prize = data;
     }
   }
 })

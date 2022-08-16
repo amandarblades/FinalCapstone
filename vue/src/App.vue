@@ -6,7 +6,7 @@
       <router-link class="nav-button" v-bind:to="{ name: 'home' }" tag="button" style="background-color: rgb(11, 34, 44)">My Library</router-link>
       <router-link class="nav-button" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != '' " tag="button" style="background-color:rgb(11, 34, 44)">Logout</router-link>
       <router-link class="nav-button" v-bind:to="{ name: 'family' }" tag="button" style="background-color: rgb(11, 34, 44)">Family Library</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'PLACEHOLDER' }" tag="button" style="background-color: rgb(11, 34, 44)">Prizes</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'prizes' }" tag="button" style="background-color: rgb(11, 34, 44)">Prizes</router-link>
       <router-link class="nav-button" v-bind:to="{ name: 'add-activity' }" tag="button" style="background-color: rgb(11, 34, 44)" >Log Activity</router-link>
     </div>
     <!-- <img id="book-image" src="blueTransparentBooks.png" alt="a book background" />  -->

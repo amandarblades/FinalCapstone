@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Family from "@/views/Family.vue"
 import AddNewActivity from "@/views/AddNewActivity"
+import Prize from "@/views/Prize.vue"
 
 Vue.use(Router)
 
@@ -80,7 +81,16 @@ const router = new Router({
                meta: {
                     requiresAuth: true
                }
+          },
+          {
+               path: "/prizes",
+               name: "prizes",
+               component: Prize,
+               meta: {
+                    requiresAuth: true
+               }
           }
+
      ]
 })
 
