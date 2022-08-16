@@ -19,9 +19,11 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
      activity: {
+       id: 0,
        title: '',
        description: '',   
        minutesRead: 0,
+       dateCompleted: '',
        notes: '',
        username: ''
      },
@@ -47,9 +49,11 @@ export default new Vuex.Store({
     ],
     activities: [
       {
+        id: 0,
         title: '',
         description: '',   
         minutesRead: 0,
+        dateCompleted: '',
         notes: '',
         username: ''
       },

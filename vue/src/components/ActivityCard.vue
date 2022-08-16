@@ -6,9 +6,11 @@
           <h4>{{activity.title}}</h4>
           <h4>{{activity.description}}</h4>
           <h4>{{activity.notes}}</h4> -->
+
           <div class="activity-item" id="username">{{activity.username}}</div>
           <div class="activity-item" id="minutes-read">{{activity.minutesRead}} </div>
           <div class="activity-item" id="title">{{activity.title}}</div>
+          <div class="activity-item" id="date-completed">{{activity.dateCompleted}}</div>
           <div class="activity-item" id="description">{{activity.description}}</div>
           <div class="activity-item" id="notes">{{activity.notes}}</div>
       </div>
@@ -29,11 +31,41 @@ export default {
 <style scoped>
 .container{
      display: flex;
-     border: 2px solid grey;
+     border: 2px solid rgb(82, 82, 82);
+     border-radius: 5px;
 }
 .activity-item{
+     display: flex;
      border: 2px solid black;
-     width: 50%;
+     padding: 10px;
+     background:#2abbb4
 }
 
+
+#username{
+     width: 70px;
+     border: 2px solid white;
+}
+#minutes-read{
+    width: 50px;
+     border: 2px solid white;
+}
+#title{
+     width: 200px;
+      border: 2px solid white;
+}
+#date-completed{
+     width:50px;
+      border: 2px solid white;
+}
+
+#description{
+     width: 100px;
+      border: 2px solid white;
+}
+#notes{
+     width:223px;
+      border: 2px solid white;
+}
+     
 </style>

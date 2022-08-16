@@ -5,7 +5,9 @@
      <div class="form-container">
     <form v-on:submit.prevent="submitForm" class="activityForm" >
         
-        <label for="current-book" >Book read: </label>
+        <!-- <label for="current-book" >Book read: </label>
+         <v-select :options="bookList"  :value="book.title" id="current-book" @input="(BookList) => updateTitle(book.title)">
+          <option value="" disabled selected>Please Select Title Read</option> -->
         <input
           type="text"
           placeholder="Book Title"
@@ -20,6 +22,13 @@
           name="minutes"
           id="logged-minutes"
           v-model="activity.minutesRead"
+        />
+        <label for="date-completed">Date Completed: </label>
+        <input
+          type="date"
+          name="date-completed"
+          id="date-completed"
+          v-model="activity.dateCompleted"
         />
         <p>How did you read today?</p>
         <select name="read-type" id="type" v-model="activity.description">
@@ -43,6 +52,7 @@
 
 <script>
 import ActivityService from '@/services/ActivityService.js';
+import BookList from '@/components/BookList.vue'
 
 export default {
   name: "add-activity",
@@ -52,10 +62,14 @@ export default {
         title: "",
         description: "",
         minutesRead: 0,
+        dateCompleted: '',
         notes: "",
         username: "",
       },
     };
+  },
+  computed:{
+       options: () => BookList,
   },
   methods: {
     submitForm() {
@@ -63,6 +77,7 @@ export default {
         title: this.activity.title,
         description: this.activity.description,
         minutesRead: this.activity.minutesRead,
+        dateCompleted: this.dateCompleted,
         notes: this.activity.notes
       };
        window.alert("Activity Saved!"),
@@ -125,7 +140,8 @@ textarea{
 input[type=text], 
 input[type=number],
 select, 
-#notes {
+#notes,
+#date-completed {
      width: 90%;
      padding: 15px;
      border: 1px solid rgba(226, 223, 206, 0.767);

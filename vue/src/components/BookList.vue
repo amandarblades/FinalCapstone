@@ -5,7 +5,7 @@
       <div class="library">
           <div class="book">
 
-            <book-card v-bind:book="book" v-for="book in getBooks" v-bind:key="book.title"/>
+            <book-card class="bookCard" v-bind:book="book" v-for="book in getBooks" v-bind:key="book.title"/>
           
           </div>
 
@@ -54,40 +54,17 @@ export default {
 
 <style scoped>
 
-div {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-     color: whitesmoke
-}
+
 
 .book  {
-    /*
-    AS .LIBRARY
-    height: 50vh;
-    overflow: scroll;
-    background-color: lightpink;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    
-    flex-flow: column wrap;
-    flex-direction: column;
-    min-width: 100%; */
-    
-    /* display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    max-width: 80%;
-    overflow: auto;
-    max-height: 40vh;
-    background-color: rgb(162, 192, 247); */
-
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    max-width: 70vw;
+    max-width: 85vw;
     overflow: auto;
-    max-height: 40vh;
+    max-height: 70vh;
     background-color: rgb(66, 107, 182);
-      
+    color: whitesmoke;
 }
 ::-webkit-scrollbar{
      width: 10px;
@@ -102,11 +79,12 @@ div {
          background-color:rgb(66, 107, 182);
          text-align: center;
          border: solid 2px black;
-    } 
-/* added card class to book card to try formatting */
-/* .card{
-     background-color: violet;
-     
-} */
+         color: whitesmoke;
+    }
+.bookCard{
+     width: 170px;
+     height: 210px;
+     background: yellow;
+}
 
 </style>

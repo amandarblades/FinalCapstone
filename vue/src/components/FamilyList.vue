@@ -1,6 +1,6 @@
 <template>
   <div class="my-family">
-    <h2>My Family Book Collection</h2>
+    <h2>Family Members</h2>
     <div class="members">
       <div class="member">
         <user v-for="member in familyUsers" v-bind:key="member.username" v-bind:familyUser="member" ></user>
@@ -59,7 +59,6 @@ export default {
   // R.SEEDS COMMENT BLOCK 15:55
   created() {
     FamilyService.getFamily().then((response) => {
-      window.alert("IT WORKS!");
       this.familyUsers = response.data;
       this.$store.commit("SET_FAMILY_MEMBERS", response.data);
     });
@@ -67,14 +66,13 @@ export default {
 };
 </script>
 
-<style>
-/* table,
-th,
-td {
-  border: 1px solid;
+<style scoped>
+div{
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     color: gray
 }
-
-th {
-  column-width: 20vw;
-} */
+.member{
+     display:flex;
+     flex-direction: column;
+}
 </style>

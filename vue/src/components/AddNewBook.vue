@@ -66,6 +66,7 @@ export default {
   transform: skewX(-20deg);
 content: skewX(20deg);
 margin-left: 2px;
+cursor: pointer;
 }
 div {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -74,6 +75,12 @@ div {
      border:2px solid rgb(11, 34, 44);
      transform: skewX(-20deg);
      margin-left: 10px;
+}
+input:hover{
+     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+     color: white;
+     transition: 0.7s;
+     background-color:rgb(191, 202, 216);
 }
 
 </style>

@@ -3,18 +3,16 @@
   <div class="home">
     <h1>My Library</h1>
     <p>See your books, and add a book by ISBN.</p>
-    <div>
+     <div class="align-right">
       <button v-on:click="isShowForm=true" class="button">Add New Book</button>
       <div v-show="isShowForm">
         <add-new-book></add-new-book>
+        </div>
       </div>
-    </div>
+   
     <book-list id="book-list"></book-list>
-    </div>
-    <!-- <div class="bottom-page">
-    <img id="book-image" src="blueTransparentBooks.png" alt="a book background"/>
-    </div> -->
     <activity-list></activity-list>
+     </div>
   </div>
   
 </template>
@@ -48,8 +46,11 @@ export default {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   height: 100vh;
   color: rgb(19, 62, 80);
+  
 }
-
+h1{
+     text-align: center;
+}
 .button:hover{
      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
      color: white;
@@ -57,6 +58,9 @@ export default {
     transform: skewX(-20deg);
 } 
 /*------------------------*/
+.align-right,p{
+     text-align: right;
+}
 
 .button{
   font-family: 'Montserrat', sans-serif;
@@ -72,6 +76,8 @@ export default {
   position: relative;
   transition: opacity 0.3s linear 0s;
    background-color: rgb(19, 62, 80);
+   cursor: pointer;
+
 }
 #book-list {
   /* display: flex; */
@@ -79,12 +85,9 @@ export default {
   flex-wrap: wrap;
   min-width: 30em;
   align-content: center;
+margin: 5px;
+}
 
-}
-.bottom-page{
-     background-color: black;
-     max-width:100%;
-}
 #book-image{
      width: 85vh;
      height: auto;

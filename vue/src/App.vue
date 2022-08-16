@@ -48,10 +48,11 @@
      
 }*/
 .nav-button:hover{
-     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+          box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
      color: white;
      transition: 0.7s;
-     font-size: 15px;
+    transform: skewX(-20deg);
+
 } 
 /*------------------------*/
 
@@ -69,6 +70,7 @@
   position: relative;
   transition: opacity 0.3s linear 0s;
   overflow: visible;
+  cursor: pointer;
 }
 
 #BW{
