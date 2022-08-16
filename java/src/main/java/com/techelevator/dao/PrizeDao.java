@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface PrizeDao {
 
-    public void createPrize(Prize newPrize);
+    public Integer createPrize(Prize newPrize);
+
+    public void addUsersToPrize(String username, Integer prizeId, String prizeRole);
 
     public List<Prize> getActivePrizesByUser(String username);
 
