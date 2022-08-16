@@ -21,7 +21,7 @@ public interface PrizeDao {
 
     public void updatePrize (Prize updatedPrize);
 
-    public void deletePrize (Prize deletedPrize);
+    public void deletePrize (int prizeID);
 
 
 }

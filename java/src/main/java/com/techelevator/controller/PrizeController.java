@@ -27,7 +27,7 @@ public class PrizeController {
 
     @RequestMapping(value = "/addprize", method = RequestMethod.POST)
     public void addPrize(@Valid @RequestBody Prize prize, Principal principal){
-        String username = "Nate"; //getCurrentUsername(principal);
+        String username = getCurrentUsername(principal);
         Integer prizeId = prizeDao.createPrize(prize);
         prizeDao.addUsersToPrize(username, prizeId, prize.getUserRole());
     }
@@ -35,9 +35,28 @@ public class PrizeController {
     @RequestMapping(value = "/getprizes", method = RequestMethod.GET)
     public List<Prize> getUserPrizes(Principal principal){
         List<Prize> prizes = new ArrayList<>();
-        String username = "Amanda"; //getCurrentUsername(principal);
+        String username = getCurrentUsername(principal);
         prizes = prizeDao.getActivePrizesByUser(username);
         return prizes;
+    }
+
+    @RequestMapping(value = "/getfamilyprizes", method = RequestMethod.GET)
+    public List<Prize> getFamilyPrizes(Principal principal){
+        List<Prize> prizes = new ArrayList<>();
+        String username = "Nate"; //getCurrentUsername(principal);
+        prizes = prizeDao.getActivePrizesByFamily(username);
+        return prizes;
+
+    }
+
+    @RequestMapping(value = "/deleteprize/{id}", method = RequestMethod.DELETE)
+    public void deletePrize(@PathVariable int id){
+        prizeDao.deletePrize(id);
+    }
+
+    @RequestMapping(value = "/updateprize", method = RequestMethod.PUT)
+    public void updatePrize(@Valid @RequestBody Prize prize){
+        prizeDao.updatePrize(prize);
     }
 
     private String getCurrentUsername(Principal principal){
