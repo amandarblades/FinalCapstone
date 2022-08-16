@@ -37,6 +37,8 @@ CREATE TABLE prize (
 	user_role varchar(10) NOT NULL,
 	start_date date NOT NULL,
 	end_date date NOT NULL,
+	is_active boolean NOT NULL,
+	prize_winners int NOT NULL,
 	CONSTRAINT PK_prize PRIMARY KEY(id)
 );
 CREATE TABLE format(

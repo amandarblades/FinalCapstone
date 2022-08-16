@@ -9,13 +9,13 @@ public interface PrizeDao {
 
     public void createPrize(Prize newPrize);
 
-    public List<Prize> getActivePrizesByUser(LocalDate startDate, LocalDate endDate);
+    public List<Prize> getActivePrizesByUser(String username);
 
-    public List<Prize> getActivePrizesByFamily(LocalDate startDate, LocalDate endDate);
+    public List<Prize> getActivePrizesByFamily(String username);
 
-    public List<Prize> getCompletedPrizesByUser(LocalDate endDate);
+    public void updateUserPrizeCompletion(Prize prize, String username);
 
-    public List<Prize> getCompletedPrizesByFamily(LocalDate endDate);
+    public void updatePrizeCompletion(Prize prize);
 
     public void updatePrize (Prize updatedPrize);
 
