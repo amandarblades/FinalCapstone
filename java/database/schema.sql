@@ -50,6 +50,7 @@ CREATE TABLE activity_log(
 	user_id int NOT NULL,
 	book_id int NOT NULL,
 	format_id int NOT NULL,
+	date_logged date NOT NULL,
 	minutes_read int NOT NULL,
 	notes varchar(200),
 	CONSTRAINT PK_activity_log PRIMARY KEY(id)
@@ -65,7 +66,8 @@ CREATE TABLE user_book(
 );
 CREATE TABLE user_prize(
 	user_id int,
-	prize_id int
+	prize_id int,
+	is_complete boolean
 );
 
 ALTER TABLE activity_log ADD CONSTRAINT FK_activity_log_users FOREIGN KEY(user_id) REFERENCES users(user_id);

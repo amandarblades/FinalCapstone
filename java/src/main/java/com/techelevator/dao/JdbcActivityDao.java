@@ -31,7 +31,7 @@ public class JdbcActivityDao implements ActivityDao {
 
     public List<Activity> getActivitiesByUsername(String username){
         List<Activity> returnList = new ArrayList<>();
-        String sql = "SELECT username, title, description, minutes_read, notes  " +
+        String sql = "SELECT al.id, username, title, description, minutes_read, notes  " +
                 "FROM activity_log al JOIN users u ON u.user_id = al.user_id  " +
                 "JOIN book b ON b.id = al.book_id  " +
                 "JOIN format f ON f.id = al.format_id " +
@@ -47,7 +47,7 @@ public class JdbcActivityDao implements ActivityDao {
 
     public List<Activity> getActivitiesByFamily(String username){
         List<Activity> returnList = new ArrayList<>();
-        String sql = "SELECT username, title, description, minutes_read, notes  " +
+        String sql = "SELECT al.id, username, title, description, minutes_read, notes  " +
                 "FROM activity_log al JOIN users u ON u.user_id = al.user_id  " +
                 "JOIN book b ON b.id = al.book_id  " +
                 "JOIN format f ON f.id = al.format_id " +
@@ -75,6 +75,7 @@ public class JdbcActivityDao implements ActivityDao {
     }
     public Activity mapRowToActivity(SqlRowSet rs){
         Activity activity = new Activity();
+        activity.setActivityID(rs.getInt("id"));
         activity.setMinutesRead(rs.getInt("minutes_read"));
         activity.setUsername(rs.getString("username"));
         activity.setTitle(rs.getString("title"));
