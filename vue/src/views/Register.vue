@@ -74,7 +74,7 @@ export default {
           .then((response) => {
             if (response.status == 201) {
               this.$router.push({
-                path: '/home',
+                name: 'home',
                 query: { registration: 'success' },
               });
             }

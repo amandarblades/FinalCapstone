@@ -15,4 +15,6 @@ public interface FamilyDao {
 
     public void removeFamilyMember(String username, String currentUser);
 
+    public boolean sysUser(String username);
+
 }

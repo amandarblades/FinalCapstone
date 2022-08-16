@@ -53,6 +53,18 @@ public class FamilyController {
         return results;
     }
 
+    //TODO: THIS SHOULD BE AUTHENTICATED ONLY
+    @RequestMapping(value = "/sysUsers/{desiredUser}", method = RequestMethod.GET)
+    public boolean sysUser(@PathVariable String desiredUser){
+
+        boolean isUser = false;
+
+        if(desiredUser != null) {
+            isUser = familyDao.sysUser(desiredUser);
+        }
+        return isUser;
+    }
+
     private String getCurrentUsername(Principal principal){
         return principal.getName();}
 

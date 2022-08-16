@@ -3,7 +3,7 @@
     <h2>My Family Book Collection</h2>
     <div class="members">
       <div class="member">
-        <user v-for="member in getMembers" v-bind:key="member.id" v-bind:familyUser="member" ></user>
+        <user v-for="member in familyUsers" v-bind:key="member.username" v-bind:familyUser="member" ></user>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
 
 <script>
 import User from "@/components/User.vue";
-//import FamilyService from "@/services/FamilyService.js";
+import FamilyService from "@/services/FamilyService.js";
 
 export default {
   name: "family-list",
@@ -57,13 +57,13 @@ export default {
     },
   },
   // R.SEEDS COMMENT BLOCK 15:55
-/*   created() {
+  created() {
     FamilyService.getFamily().then((response) => {
       window.alert("IT WORKS!");
       this.familyUsers = response.data;
       this.$store.commit("SET_FAMILY_MEMBERS", response.data);
     });
-  }, */
+  }
 };
 </script>
 

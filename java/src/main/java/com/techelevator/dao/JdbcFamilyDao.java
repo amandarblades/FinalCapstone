@@ -68,6 +68,11 @@ public class JdbcFamilyDao implements FamilyDao {
         jdbcTemplate.update(sql, username, familyName);
     }
 
+    @Override
+    public boolean sysUser(String username) {
+        return (jdbcTemplate.queryForObject("SELECT Count(*) FROM users WHERE username = ?", Integer.class, username)) > 0;
+    }
+
     public Family mapRowToFamily(SqlRowSet rs){
         Family family = new Family();
         family.setFamilyID(rs.getInt("id"));
