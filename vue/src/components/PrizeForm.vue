@@ -1,26 +1,29 @@
 <template>
   <div class="add-prize">
      
-     <form action="" v-on:submit.prevent="submitForm" class="add-prize-form">
+     <form v-on:submit.prevent="submitForm" class="add-prize-form">
           <label for="prizeName">Add Prize Name: </label>
-          <input type="text" id="prize-name" v-model="prizeName"/>
+          <input type="text" id="prize-name" v-model="prize.prizeName"/>
           <label for="start-date">Start-Date: </label>
-          <input type="date" v-model="startDate">
+          <input type="date" v-model="prize.startDate">
           <label for="end-date">End-Date: </label>
-          <input type="date" v-model="endDate">
+          <input type="date" v-model="prize.endDate">
           <label for="maxPrize">Number of available prizes: </label>
-          <input type="number" v-model="maxPrize">
+          <input type="number" v-model="prize.maxPrize">
           <label for="milestone">Minutes goal:</label>
-          <input type="number" v-model="milestone">
+          <input type="number" v-model="prize.milestone">
           <label for="description">Description:</label>
-          <input type="number" v-model="description">
-          <select name="userRole" id="type" v-model="userRole">
+          <input type="textarea" v-model="prize.description">
+          <select name="userRole" id="type" v-model="prize.userRole">Prize For?:
                <option value="" disabled selected>Prize For:</option>
                <option value="ROLE_USER">Child</option>
                <option value="ROLE_ADMIN">Parent</option>
                <option value="ROLE_BOTH">Both</option>
           </select>
-          
+          <input type="submit">
+          <input type="reset">
+
+
 
      </form>
      </div>
