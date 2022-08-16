@@ -11,6 +11,24 @@ public class Prize {
     private String userRole;
     private LocalDate startDate;
     private LocalDate endDate;
+    private int numOfPrizeWinners;
+    private boolean isActive;
+
+    public int getNumOfPrizeWinners() {
+        return numOfPrizeWinners;
+    }
+
+    public void setNumOfPrizeWinners(int numOfPrizeWinners) {
+        this.numOfPrizeWinners = numOfPrizeWinners;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 
     public int getPrizeID() {
         return prizeID;
@@ -78,7 +96,7 @@ public class Prize {
 
     public Prize(){};
 
-    public Prize(int prizeID, String prizeName, int milestone, int maxPrize, String description, String userRole, LocalDate startDate, LocalDate endDate) {
+    public Prize(int prizeID, String prizeName, int milestone, int maxPrize, String description, String userRole, LocalDate startDate, LocalDate endDate, int numOfPrizeWinners, boolean isActive) {
         this.prizeID = prizeID;
         this.prizeName = prizeName;
         this.milestone = milestone;
@@ -87,5 +105,7 @@ public class Prize {
         this.userRole = userRole;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.numOfPrizeWinners = numOfPrizeWinners;
+        this.isActive = isActive;
     }
 }

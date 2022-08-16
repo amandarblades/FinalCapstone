@@ -27,8 +27,8 @@ VALUES((SELECT id FROM family_unit WHERE family_name = 'Bookworms'), (SELECT use
 INSERT INTO user_family(family_id, user_id)
 VALUES((SELECT id FROM family_unit WHERE family_name = 'Bookworms'), (SELECT user_id FROM users WHERE username= 'Amanda'));
 
-INSERT INTO prize(prize_name, milestone, max_prize, description, user_role, start_date, end_date)
-VALUES('Read to Pop', 20, 5, 'You got a piece of gum!', 'ROLE_USER', '2021-08-01', '2021-08-05');
+INSERT INTO prize(prize_name, milestone, max_prize, description, user_role, start_date, end_date, is_active, prize_winners)
+VALUES('Read to Pop', 20, 5, 'You got a piece of gum!', 'ROLE_USER', '2021-08-01', '2021-08-05', true, 0);
 
 INSERT INTO user_prize(prize_id, user_id, is_complete)
 VALUES(1, 4, false);
