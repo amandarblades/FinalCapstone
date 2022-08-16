@@ -32,6 +32,7 @@ public class JdbcPrizeDao implements PrizeDao{
         String sql = "INSERT INTO user_prize(user_id, prize_id, is_complete) VALUES(?,?, false);";
 
         if(prizeRole.equals("ROLE_USER")){
+
             String usersToInsertSql = "SELECT user_id FROM user_family WHERE (family_id = (SELECT family_id FROM user_family " +
                     "WHERE user_id = (SELECT user_id FROM users WHERE username = ?)) " +
                     "AND user_id IN (SELECT user_id FROM users WHERE role = 'ROLE_USER' ));";
@@ -40,6 +41,9 @@ public class JdbcPrizeDao implements PrizeDao{
                 jdbcTemplate.update(sql, userIDs[i], prizeId);
             }
         } else if(prizeRole.equals("ROLE_ADMIN")){
+            // given username, get userId from users table
+            // given userId, get familyID
+            // given familyID, get admin users for that family
             String adminsToInsertSql = "SELECT user_id FROM user_family WHERE (family_id = (SELECT family_id FROM user_family " +
                     "WHERE user_id = (SELECT user_id FROM users WHERE username = ?)) " +
                     "AND user_id IN (SELECT user_id FROM users WHERE role = 'ROLE_ADMIN' ));";
