@@ -28,7 +28,13 @@ public class FamilyController {
     @RequestMapping(value = "/addfamily/{familyName}", method = RequestMethod.POST)
     public void createFamily(@PathVariable String familyName, Principal principal){
         String username = getCurrentUsername(principal);
-        familyDao.createFamily(username, familyName);
+        int numOfFamilyMembers = familyDao.numOfFamilyMembers(username);
+        System.out.println(numOfFamilyMembers);
+        if(numOfFamilyMembers > 0){
+            familyDao.updateFamilyName(username, familyName);
+        } else {
+            familyDao.createFamily(username, familyName);
+        }
     }
 
     @RequestMapping(value = "/addfamilymember/{addedUsername}", method = RequestMethod.POST)
@@ -67,7 +73,7 @@ public class FamilyController {
 
     @RequestMapping(value = "/getfamilyname", method = RequestMethod.GET)
     public String getFamilyName(Principal principal){
-        String username = "Nate"; //getCurrentUsername(principal);
+        String username = getCurrentUsername(principal);
         String familyName = familyDao.getFamilyName(username);
         return familyName;
     }

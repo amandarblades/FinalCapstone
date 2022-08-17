@@ -19,4 +19,8 @@ public interface FamilyDao {
 
     public String getFamilyName(String username);
 
+    public void updateFamilyName(String username, String familyName);
+
+    public int numOfFamilyMembers(String familyName);
+
 }

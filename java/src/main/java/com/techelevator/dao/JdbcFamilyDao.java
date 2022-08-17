@@ -75,11 +75,20 @@ public class JdbcFamilyDao implements FamilyDao {
 
     @Override
     public String getFamilyName(String username) {
-        String familyName = null;
+        String familyName = " ";
+
         String sql = "SELECT family_name FROM family_unit fu JOIN user_family uf ON uf.family_id = fu.id " +
             "JOIN users u ON u.user_id = uf.user_id WHERE u.user_id = (SELECT user_id FROM users WHERE username = ?);";
         familyName = jdbcTemplate.queryForObject(sql, String.class, username);
         return familyName;
+    }
+
+    @Override
+    public int numOfFamilyMembers(String username){
+        int numOfFamilyMembers = 0;
+        String findFamilySql = "SELECT COUNT(user_id) FROM user_family WHERE user_id = (SELECT user_id FROM users WHERE username = ?);";
+        numOfFamilyMembers = jdbcTemplate.queryForObject(findFamilySql, Integer.class, username);
+        return numOfFamilyMembers;
     }
 
     public Family mapRowToFamily(SqlRowSet rs){
@@ -94,6 +103,11 @@ public class JdbcFamilyDao implements FamilyDao {
         user.setUsername(rs.getString("username"));
         user.setMinutesRead(rs.getInt("total_minutes_read"));
         return user;
+    }
+
+    public void updateFamilyName(String username, String familyName){
+        String sql = "UPDATE family_unit SET family_name = ? WHERE id = (SELECT family_id FROM user_family WHERE user_id = (SELECT user_id FROM users WHERE username = ?));";
+        jdbcTemplate.update(sql, familyName, username);
     }
 
 }
