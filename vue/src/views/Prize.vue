@@ -1,9 +1,12 @@
 <template>
   <div>
        <div class="prize">
-            <h2>Prize List</h2>
-            <prize-list id="prize-list"></prize-list>
+           <div class="prize-form">
             <prize-form></prize-form>
+            </div>
+            <prize-list id="prize-list"></prize-list>
+            <div id="burst-8"></div>
+          
        </div>
   </div>
 </template>
@@ -21,6 +24,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.prize-form{
+     margin: 75px;
+}
+
+
 
 </style>

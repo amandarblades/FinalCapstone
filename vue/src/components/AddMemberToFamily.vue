@@ -3,7 +3,8 @@
        <form action="" v-on:submit.prevent="submitForm" class="add-user-family-form">
                     <label for="Username" >Add a Family Member:</label>
                     <input type="text" id="userToAdd" v-model="familyMemberName"/>
-                    <button type="submit">Add</button>
+                    <input type="submit">
+                    <input type="reset">
                </form>
   </div>
 </template>
@@ -45,6 +46,40 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+input[type=submit],
+input[type=reset]{
+      font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
+  padding: 10px;
+  width: 20%;
+  position: relative;
+  transition: opacity 0.3s linear 0s;
+  background-color: rgb(19, 62, 80);
+ margin: 10px;
+}
+input:hover{
+     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+     color: white;
+     transition: 0.7s;
 
+}
+input[type=submit]:hover,
+input[type=reset]:hover 
+{
+     transform: skewX(-20deg);
+     transition: 0.7s;
+     cursor: pointer;
+}
+input[type=text]{
+     border:2px solid rgb(11, 34, 44);
+     
+     margin-left: 10px;
+}
 </style>

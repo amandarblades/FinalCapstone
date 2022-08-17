@@ -36,36 +36,35 @@ export default {
 }
 .activity-item{
      display: flex;
-     border: 2px solid black;
      padding: 10px;
-     background:#2abbb4
+     background:#2abbb4;
+     width: 100%;
 }
 
-
+/* 
 #username{
      width: 70px;
-     border: 2px solid white;
+    
 }
 #minutes-read{
     width: 50px;
-     border: 2px solid white;
+    
 }
 #title{
      width: 200px;
-      border: 2px solid white;
+    
 }
 #date-completed{
      width:50px;
-      border: 2px solid white;
 }
 
 #description{
      width: 100px;
-      border: 2px solid white;
+   
 }
 #notes{
      width:223px;
-      border: 2px solid white;
+      
 }
-     
+      */
 </style>

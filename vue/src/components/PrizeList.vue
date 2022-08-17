@@ -3,8 +3,9 @@
       <div class="prizes">
           <div >
                <h2>My prizes</h2>
-
+          <div class="testing-grid">
               <prize-card class="prizeCard" v-bind:prize="prize" v-for="prize in getPrizes" v-bind:key="prize.prizeID"></prize-card>
+              </div>
 
           </div>
       </div>
@@ -56,6 +57,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.testing-grid{
+     display: inline;
+     justify-content: space-between;
+     align-items: center;
+}
+
 
 </style>

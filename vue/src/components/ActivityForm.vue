@@ -4,29 +4,13 @@
        <h2>Log your minutes!</h2>
      <div class="form-container">
     <form v-on:submit.prevent="submitForm" class="activityForm" >
-        
-        <!-- <label for="current-book" >Book read: </label>
-         <v-select :options="bookList"  :value="book.title" id="current-book" @input="(BookList) => updateTitle(book.title)">
-          <option value="" disabled selected>Please Select Title Read</option> -->
-        <input type="text" placeholder="Book Title" name="current-book" id="current-book"
-          v-model="activity.title"
-        />
+         <label for="title">What did you read?</label>
+        <input type="text" placeholder="Book Title" name="current-book" id="current-book" v-model="activity.title"/>
         <label for="minutes">Minutes read: </label>
-        <input
-          type="number"
-          placeholder="Number read"
-          name="minutes"
-          id="logged-minutes"
-          v-model="activity.minutesRead"
-        />
+        <input type="number" placeholder="Number read" name="minutes" id="logged-minutes" v-model="activity.minutesRead"/>
         <label for="date-completed">Date Completed: </label>
-        <input
-          type="date"
-          name="date-completed"
-          id="date-completed"
-          v-model="activity.dateCompleted"
-        />
-        <p>How did you read today?</p>
+        <input type="date" name="date-completed" id="date-completed" v-model="activity.dateCompleted"/>
+        <label for="read-type">How did you read?</label>
         <select name="read-type" id="type" v-model="activity.description">
           <option value="" disabled selected>Please Select Type</option>
           <option value="Audiobook">Audiobook</option>
@@ -36,8 +20,8 @@
           <option value="Read-Aloud(Listener)">Read-Aloud(Listener)</option>
           <option value="Other">Other</option>
         </select>
-        <label for="notes">Notes: </label>
-        <input type="textarea" placeholder="Enter any notes (Optional)" name="notes" id="notes" v-model="activity.notes" />
+        <label for="notes"></label>
+        <input type="text" placeholder="Enter any notes (Optional)" name="notes" id="notes" v-model="activity.notes" />
         <!-- <button type="submit">Log it!</button> -->
         <input type="submit">
         <input type="reset">
@@ -102,7 +86,8 @@ form > div > h5 {
      justify-content: center;
      align-items: center;
      flex-direction: column;
-
+     margin-left: 25px;
+     margin-right: 25px;
 }
 
 .form-container{
@@ -118,32 +103,30 @@ form > div > h5 {
      position: absolute;
      z-index: 1;     
 }
-.form-img{
-     max-width: 70%;
-     max-height: auto;
-     z-index: -1;
-     background-attachment:fixed;
-     background-size: cover;
-}
-textarea{
-     height: 150px;
-     padding: 12px
-}
+
 *{
      box-sizing:border-box;
 }
 input[type=text], 
 input[type=number],
-select, 
-#notes,
-#date-completed {
+#notes{
      width: 90%;
      padding: 15px;
      border: 1px solid rgba(226, 223, 206, 0.767);
      border-radius: 4px;
      resize: vertical;
-    
 }
+#date-completed, 
+select{
+     margin-top: 10px;
+     margin-bottom: 10px;
+     width: 30%;
+     padding: 15px;
+      border: 1px solid rgba(226, 223, 206, 0.767);
+     border-radius: 4px;
+     resize: vertical;
+ }   
+
 label {
      padding: 12px; 
      display: inline-block;
@@ -176,6 +159,7 @@ input[type=reset]:hover
      border-radius: 5px;
      background-color: rgba(226, 223, 206, 0.767);
 }
+
 h2{
      margin: 30px;
 }

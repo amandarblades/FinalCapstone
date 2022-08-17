@@ -11,8 +11,9 @@
             <div  id="description">Format</div>
             <div  id="notes">Notes</div>
             </div>
+            <div class="activity-item">
             <activity-card v-bind:activity="activity" v-for="activity in getActivities" v-bind:key="activity.id"></activity-card>
-            
+            </div>
         </div>
     </div>
   </div>
@@ -71,6 +72,7 @@ div {
      overflow: auto;
      flex-wrap: wrap;
      max-height: 35vh;
+     
 }
 ::-webkit-scrollbar{
      width: 10px;
@@ -85,36 +87,36 @@ div {
 
 #username{
      padding: 10px;
-     width: 70px;
+    
      border: 2px solid white;
      color: whitesmoke;
 }
 #minutes-read{
      padding: 10px;
-    width: 50px;
+   
      border: 2px solid white;
      color: whitesmoke;
 }
 #title{
      padding: 10px;
-     width: 180px;
+   
       border: 2px solid white;
       color: whitesmoke;
 }
 #description{
      padding: 10px;
-     width: 100px;
+     
       border: 2px solid white;
       color: whitesmoke;
 }
 #notes{
      color: whitesmoke;
      padding: 10px;
-     width: 200px;
+     
       border: 2px solid white;
 }
 #date-completed{
-     width: 50px;
+     
       border: 2px solid white;
       padding: 10px;
       color: whitesmoke;
@@ -130,9 +132,16 @@ div {
      border-radius: 10px;
      background-color: rgb(19, 62, 80);
      color: whitesmoke;
+     width: 100%;
 }
 h2{
      text-align: center;
+}
+.activity-item{
+     width: 100%;
+     border: 2px solid black;
+     padding: 10px;
+     background:#2abbb4
 }
 
 
