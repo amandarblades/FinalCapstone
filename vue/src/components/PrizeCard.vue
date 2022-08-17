@@ -45,7 +45,7 @@ export default {
      padding: 10px;
      background:#2abbb4
 }
-    /* #burst-8 {
+    #burst-8 {
      margin: 20px;
       background: blue;
       width: 80px;
@@ -63,5 +63,5 @@ export default {
       width: 80px;
       background: blue;
       transform: rotate(135deg);
-    } */
+    }
 </style>
