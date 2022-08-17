@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -81,6 +82,16 @@ public class JdbcUserDao implements UserDao {
         String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
 
         return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
+    }
+
+    @Override
+    public String getUserRole(String username){
+        String userRole = null;
+
+        String sql = "SELECT role FROM users WHERE username = ?";
+        userRole = jdbcTemplate.queryForObject(sql, String.class, username);
+
+        return userRole;
     }
 
     private User mapRowToUser(SqlRowSet rs) {

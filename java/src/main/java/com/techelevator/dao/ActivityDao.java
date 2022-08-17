@@ -8,9 +8,7 @@ public interface ActivityDao {
 
     public void logNewActivity(String username, Activity activity);
 
-    public List<Activity> getActivitiesByUsername(String username);
-
-    public List<Activity> getActivitiesByFamily(String username);
+    public List<Activity> getActivities(String username, String userRole);
 
     public void updateActivity();
 

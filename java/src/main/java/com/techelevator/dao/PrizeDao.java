@@ -11,7 +11,7 @@ public interface PrizeDao {
 
     public void addUsersToPrize(String username, Integer prizeId, String prizeRole);
 
-    public List<Prize> getActivePrizesByUser(String username);
+    public List<Prize> getActivePrizes(String username, String userRole);
 
     public List<Prize> getActivePrizesByFamily(String username);
 

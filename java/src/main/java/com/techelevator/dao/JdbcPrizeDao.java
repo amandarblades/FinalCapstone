@@ -15,6 +15,9 @@ public class JdbcPrizeDao implements PrizeDao{
 
     private final JdbcTemplate jdbcTemplate;
     public JdbcPrizeDao(JdbcTemplate jdbcTemplate){this.jdbcTemplate = jdbcTemplate;}
+
+    private final String roleAdmin = "ROLE_ADMIN";
+    private final String roleUser = "ROLE_USER";
     
 
     @Override
@@ -33,7 +36,7 @@ public class JdbcPrizeDao implements PrizeDao{
 
         String sql = "INSERT INTO user_prize(user_id, prize_id, is_complete) VALUES(?,?, false);";
 
-        if(prizeRole.equals("ROLE_USER")){
+        if(prizeRole.equals(roleUser)){
 
             String usersToInsertSql = "SELECT user_id FROM user_family WHERE (family_id = (SELECT family_id FROM user_family " +
                     "WHERE user_id = (SELECT user_id FROM users WHERE username = ?)) " +
@@ -42,7 +45,7 @@ public class JdbcPrizeDao implements PrizeDao{
             for(int i = 0; i < userIDs.size(); i++){
                 jdbcTemplate.update(sql, userIDs.get(i), prizeId);
             }
-        } else if(prizeRole.equals("ROLE_ADMIN")){
+        } else if(prizeRole.equals(roleAdmin)){
             String adminsToInsertSql = "SELECT user_id FROM user_family WHERE (family_id = (SELECT family_id FROM user_family " +
                     "WHERE user_id = (SELECT user_id FROM users WHERE username = ?)) " +
                     "AND user_id IN (SELECT user_id FROM users WHERE role = 'ROLE_ADMIN' ));";
@@ -62,16 +65,31 @@ public class JdbcPrizeDao implements PrizeDao{
     }
 
     @Override
-    public List<Prize> getActivePrizesByUser(String username){
+    public List<Prize> getActivePrizes(String username, String userRole){
         List<Prize> prizes = new ArrayList<>();
-        String sql = "SELECT * FROM prize p " +
-                "JOIN user_prize up ON up.prize_id = p.id " +
-                "WHERE up.user_id = (SELECT user_id FROM users WHERE username = ?) AND p.is_active = true AND up.is_complete = false;";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
-        while(results.next()){
-            prizes.add(mapRowToPrize(results));
+        if(userRole.equals(roleUser)){
+            String sql = "SELECT * FROM prize p " +
+                    "JOIN user_prize up ON up.prize_id = p.id " +
+                    "WHERE up.user_id = (SELECT user_id FROM users WHERE username = ?) AND p.is_active = true AND up.is_complete = false;";
+
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
+            while(results.next()){
+                prizes.add(mapRowToPrize(results));
+            }
+        } else if (userRole.equals(roleAdmin)){
+            String sql = "SELECT * FROM prize p JOIN user_prize up ON up.prize_id = p.id " +
+                    "WHERE up.user_id IN (SELECT user_id FROM user_family WHERE  " +
+                    "family_id = (SELECT family_id FROM user_family WHERE " +
+                    "user_id = (SELECT user_id FROM users WHERE username = ?))) " +
+                    "AND p.is_active = true  AND up.is_complete = false;";
+
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
+            while (results.next()){
+                prizes.add(mapRowToPrize(results));
+            }
         }
+
 
         return prizes;
     }
@@ -125,6 +143,8 @@ public class JdbcPrizeDao implements PrizeDao{
 
     @Override
     public void deletePrize (int prizeID){
+        String deleteSql = "DELETE FROM user_prize WHERE prize_id = ?";
+        jdbcTemplate.update(deleteSql, prizeID);
         String sql = "DELETE FROM prize WHERE id = ?;";
         jdbcTemplate.update(sql, prizeID);
     }

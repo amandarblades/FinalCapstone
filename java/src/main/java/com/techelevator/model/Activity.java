@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+
 public class Activity {
 
     private int activityID;
@@ -11,6 +13,15 @@ public class Activity {
     private String title;
     private String description;
     private String username;
+    private LocalDate dateLogged;
+
+    public LocalDate getDateLogged() {
+        return dateLogged;
+    }
+
+    public void setDateLogged(LocalDate dateLogged) {
+        this.dateLogged = dateLogged;
+    }
 
     public String getTitle() {
         return title;
@@ -107,7 +118,7 @@ public class Activity {
         this.description = description;
     }
 
-    public Activity(int activityID, int bookID, int userID, int formatID, int minutesRead, String notes, String title, String description, String username) {
+    public Activity(int activityID, int bookID, int userID, int formatID, int minutesRead, String notes, String title, String description, String username, LocalDate dateLogged) {
         this.activityID = activityID;
         this.bookID = bookID;
         this.userID = userID;
@@ -117,5 +128,6 @@ public class Activity {
         this.title = title;
         this.description = description;
         this.username = username;
+        this.dateLogged = dateLogged;
     }
 }

@@ -35,19 +35,20 @@ public class PrizeController {
     @RequestMapping(value = "/getprizes", method = RequestMethod.GET)
     public List<Prize> getUserPrizes(Principal principal){
         List<Prize> prizes = new ArrayList<>();
-        String username = getCurrentUsername(principal);
-        prizes = prizeDao.getActivePrizesByUser(username);
+        String username = "Amanda"; // getCurrentUsername(principal);
+        String userRole = userDao.getUserRole(username);
+        prizes = prizeDao.getActivePrizes(username, userRole);
         return prizes;
     }
 
-    @RequestMapping(value = "/getfamilyprizes", method = RequestMethod.GET)
-    public List<Prize> getFamilyPrizes(Principal principal){
-        List<Prize> prizes = new ArrayList<>();
-        String username = "Nate"; //getCurrentUsername(principal);
-        prizes = prizeDao.getActivePrizesByFamily(username);
-        return prizes;
-
-    }
+//    @RequestMapping(value = "/getfamilyprizes", method = RequestMethod.GET)
+//    public List<Prize> getFamilyPrizes(Principal principal){
+//        List<Prize> prizes = new ArrayList<>();
+//        String username = "Nate"; //getCurrentUsername(principal);
+//        prizes = prizeDao.getActivePrizesByFamily(username);
+//        return prizes;
+//
+//    }
 
     @RequestMapping(value = "/deleteprize/{id}", method = RequestMethod.DELETE)
     public void deletePrize(@PathVariable int id){

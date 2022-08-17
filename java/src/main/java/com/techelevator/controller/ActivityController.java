@@ -40,26 +40,11 @@ public class ActivityController {
     @RequestMapping(value="/getactivities", method = RequestMethod.GET)
     public List<Activity> getUserActivities(Principal principal){
         List<Activity> activities = new ArrayList<>();
-        String username = getCurrentUsername(principal);
-         activities = activityDao.getActivitiesByUsername(username);
+        String username = "Nate"; //getCurrentUsername(principal);
+        String userRole = userDao.getUserRole(username);
+         activities = activityDao.getActivities(username, userRole);
         return activities;
     }
-
-    @RequestMapping(value = "/getchildactivities", method = RequestMethod.GET)
-    public List<Activity> getChildActivities(String username){
-        List<Activity> activities = new ArrayList<>();
-        activities = activityDao.getActivitiesByUsername(username);
-        return activities;
-    }
-
-    @RequestMapping(value = "/getfamilyactivities", method = RequestMethod.GET)
-    public List<Activity> getFamilyActivities(Principal principal){
-        List<Activity> activities = new ArrayList<>();
-        String username = getCurrentUsername(principal);
-        activities = activityDao.getActivitiesByFamily(username);
-        return activities;
-    }
-
 
     private String getCurrentUsername(Principal principal){
         return principal.getName();
