@@ -33,6 +33,7 @@ public class ActivityController {
     public void logActivity(@Valid @RequestBody Activity newActivity){
 
         activityDao.logNewActivity(newActivity);
+        userDao.updateTotalMinutesRead(newActivity.getUsername(), newActivity.getMinutesRead());
 
     }
 

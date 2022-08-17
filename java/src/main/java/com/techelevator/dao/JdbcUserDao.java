@@ -94,6 +94,18 @@ public class JdbcUserDao implements UserDao {
         return userRole;
     }
 
+    @Override
+    public void updateTotalMinutesRead(String username, int minutesToAdd){
+        User currentUser = getUserById(findIdByUsername(username));
+        String sqlMinutes = "SELECT total_minutes_read FROM users WHERE username = ?;";
+        Integer currentMins = jdbcTemplate.queryForObject(sqlMinutes, Integer.class, username);
+        currentMins += minutesToAdd;
+        currentUser.setMinutesRead(currentMins);
+
+        String sql = "UPDATE users SET total_minutes_read = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, currentMins, currentUser.getId());
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));

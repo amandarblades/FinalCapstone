@@ -19,7 +19,9 @@ public interface UserDao {
 
     public String getUserRole(String username);
 
+    public void updateTotalMinutesRead(String username, int minutesToAdd);
+
     //TODO: get array of prizes won and current working prize.
 
-    //TODO: method to get total minutes read by user.
+
 }
