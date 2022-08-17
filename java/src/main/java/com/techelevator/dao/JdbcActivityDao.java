@@ -17,25 +17,26 @@ public class JdbcActivityDao implements ActivityDao {
     private final String roleAdmin = "ROLE_ADMIN";
     private final String roleUser = "ROLE_USER";
 
-    public void logNewActivity(String username, Activity activity){
+    public void logNewActivity( Activity activity){
 
         if(activity.getNotes()!= null){
-            String sql = "INSERT INTO activity_log(user_id, book_id, format_id, minutes_read, notes)  " +
+            String sql = "INSERT INTO activity_log(user_id, book_id, format_id, minutes_read, notes, date_logged)  " +
                     "VALUES((SELECT user_id FROM users WHERE username = ?), (SELECT id FROM book WHERE title = ?),  " +
-                    "(SELECT id FROM format WHERE description = ?), ?, ?) ;" ;
-            jdbcTemplate.update(sql, username, activity.getTitle(), activity.getDescription(), activity.getMinutesRead(), activity.getNotes());
+                    "(SELECT id FROM format WHERE description = ?), ?, ?, ?) ;" ;
+            jdbcTemplate.update(sql, activity.getUsername(), activity.getTitle(), activity.getDescription(), activity.getMinutesRead(),
+                    activity.getNotes(), activity.getDateLogged());
         } else{
-            String sql = "INSERT INTO activity_log(user_id, book_id, format_id, minutes_read)  " +
+            String sql = "INSERT INTO activity_log(user_id, book_id, format_id, minutes_read, date_logged)  " +
                     "VALUES((SELECT user_id FROM users WHERE username = ?), (SELECT id FROM book WHERE title = ?),  " +
-                    "(SELECT id FROM format WHERE description = ?), ?); ";
-            jdbcTemplate.update(sql, username, activity.getTitle(), activity.getDescription(), activity.getMinutesRead());
+                    "(SELECT id FROM format WHERE description = ?), ?, ?); ";
+            jdbcTemplate.update(sql, activity.getUsername(), activity.getTitle(), activity.getDescription(), activity.getMinutesRead(), activity.getDateLogged());
         }
     }
 
     public List<Activity> getActivities(String username, String userRole){
         List<Activity> returnList = new ArrayList<>();
         if(userRole.equals(roleUser)) {
-            String sql = "SELECT al.id, username, title, description, minutes_read, notes  " +
+            String sql = "SELECT al.id, username, title, description, minutes_read, notes, al.date_logged  " +
                     "FROM activity_log al JOIN users u ON u.user_id = al.user_id  " +
                     "JOIN book b ON b.id = al.book_id  " +
                     "JOIN format f ON f.id = al.format_id " +

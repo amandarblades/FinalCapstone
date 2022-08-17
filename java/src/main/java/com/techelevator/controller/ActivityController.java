@@ -30,9 +30,10 @@ public class ActivityController {
     }
 
     @RequestMapping(value="/addactivity", method = RequestMethod.POST)
-    public void logActivity(@Valid @RequestBody Activity newActivity, Principal principal){
-        String username = getCurrentUsername(principal);
-        activityDao.logNewActivity(username, newActivity);
+    public void logActivity(@Valid @RequestBody Activity newActivity){
+
+        //String username = "Nate"; //getCurrentUsername(principal);
+        activityDao.logNewActivity(newActivity);
 
     }
 

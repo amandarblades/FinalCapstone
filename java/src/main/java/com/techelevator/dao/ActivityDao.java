@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ActivityDao {
 
-    public void logNewActivity(String username, Activity activity);
+    public void logNewActivity(Activity activity);
 
     public List<Activity> getActivities(String username, String userRole);
 
