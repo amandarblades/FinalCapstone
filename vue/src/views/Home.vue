@@ -11,7 +11,8 @@
       </div>
    
     <book-list id="book-list"></book-list>
-    <activity-list></activity-list>
+    <activity-list id="activity-list"></activity-list>
+  
      </div>
   </div>
   

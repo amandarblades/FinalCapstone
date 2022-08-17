@@ -3,13 +3,13 @@
     <h2>My Activities</h2>
     <div class="activities">
         <div class="activity" >
-             <div class="activity-label">
-            <div id="username">Username </div>
-            <div id="minutes-read">Mins Read</div>
-            <div id="title">Title Read</div>
-            <div  id="date-completed">Date</div>
-            <div  id="description">Format</div>
-            <div  id="notes">Notes</div>
+               <div class="activity-label">
+            <div class="table-header" id="username">Username </div>
+            <div class="table-header" id="minutes-read">Mins Read</div>
+            <div class="table-header" id="title">Title Read</div>
+            <div class="table-header" id="date-completed">Date</div>
+            <div class="table-header" id="description">Format</div>
+            <div class="table-header" id="notes">Notes</div>
             </div>
             <div class="activity-item">
             <activity-card v-bind:activity="activity" v-for="activity in getActivities" v-bind:key="activity.id"></activity-card>
@@ -29,11 +29,12 @@ export default {
         data(){
             return{
                 activity: {
-                     id: 0,
+                    id: 0,
                     title: '',
                     description: '',   
                     minutesRead: 0,
-                     notes: '',
+                    dateCompleted: '',
+                    notes: '',
                     username: ''
                 },
                 activities: []
@@ -72,6 +73,7 @@ div {
      overflow: auto;
      flex-wrap: wrap;
      max-height: 35vh;
+     justify-content: stretch;
      
 }
 ::-webkit-scrollbar{
@@ -140,8 +142,13 @@ h2{
 .activity-item{
      width: 100%;
      border: 2px solid black;
-     padding: 10px;
+     /* padding: 10px; */
      background:#2abbb4
+}
+.table-header{
+     width: 100vw;
+    display: flex;
+    justify-items: space-evenly;  
 }
 
 

@@ -39,13 +39,23 @@ export default {
      border: 2px solid rgb(82, 82, 82);
      border-radius: 5px;
 }
+
+.prize-card{
+  display: flex;
+  flex-wrap: wrap;
+   width: 170px;
+     height:230px;
+     margin: 5px;
+     border: 2px solid;
+}
+
 .prize-item{
      display: flex;
      
      padding: 10px;
      background:#2abbb4
 }
-    #burst-8 {
+    /* #burst-8 {
      margin: 20px;
       background: blue;
       width: 80px;
@@ -63,5 +73,5 @@ export default {
       width: 80px;
       background: blue;
       transform: rotate(135deg);
-    }
+    } */
 </style>

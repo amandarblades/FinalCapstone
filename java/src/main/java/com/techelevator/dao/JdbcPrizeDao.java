@@ -71,7 +71,8 @@ public class JdbcPrizeDao implements PrizeDao{
         if(userRole.equals(roleUser)){
             String sql = "SELECT * FROM prize p " +
                     "JOIN user_prize up ON up.prize_id = p.id " +
-                    "WHERE up.user_id = (SELECT user_id FROM users WHERE username = ?) AND p.is_active = true AND up.is_complete = false;";
+                    "WHERE up.user_id = (SELECT user_id FROM users WHERE username = ?) AND p.is_active = true AND up.is_complete = false " +
+                    "ORDER BY end_date DESC;";
 
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
             while(results.next()){
@@ -82,7 +83,8 @@ public class JdbcPrizeDao implements PrizeDao{
                     "WHERE up.user_id IN (SELECT user_id FROM user_family WHERE  " +
                     "family_id = (SELECT family_id FROM user_family WHERE " +
                     "user_id = (SELECT user_id FROM users WHERE username = ?))) " +
-                    "AND p.is_active = true  AND up.is_complete = false;";
+                    "AND p.is_active = true  AND up.is_complete = false " +
+                    "ORDER BY end_date DESC;";
 
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
             while (results.next()){

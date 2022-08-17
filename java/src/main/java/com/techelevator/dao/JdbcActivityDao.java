@@ -39,8 +39,7 @@ public class JdbcActivityDao implements ActivityDao {
                     "FROM activity_log al JOIN users u ON u.user_id = al.user_id  " +
                     "JOIN book b ON b.id = al.book_id  " +
                     "JOIN format f ON f.id = al.format_id " +
-                    "WHERE al.user_id = (SELECT user_id from users WHERE username = ?) " +
-                    "ORDER BY end_date DESC;";
+                    "WHERE al.user_id = (SELECT user_id from users WHERE username = ?);";
 
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
             while (results.next()) {
@@ -55,8 +54,8 @@ public class JdbcActivityDao implements ActivityDao {
                     "(SELECT user_id FROM user_family WHERE family_id = (SELECT id FROM family_unit WHERE family_name =  " +
                     "(SELECT family_name FROM family_unit WHERE id = (SELECT family_id from user_family WHERE user_id =  " +
                     "(SELECT user_id from users WHERE username = ?)))))) " +
-                    "ORDER BY username, date_logged DESC " +
-                    "ORDER BY end_date DESC;";
+                    "ORDER BY username, date_logged DESC ;";
+
 
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
             while(results.next()){

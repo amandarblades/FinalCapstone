@@ -23,9 +23,13 @@
 
 <div class="book-card">
   <div v-bind:to="{name: 'book-details', params: {title: book.title}}" class="style-book">
+          <div>
           <img  class="book-image" :src="book.imgURL" />
+          </div>
+          <div>
           <h5 class="book-title">{{book.title}}</h5>
           <h6 class="book-author">{{book.author}}</h6>
+          </div>
  </div>         
 
       
@@ -51,6 +55,7 @@ export default {
      width: 150px;
      height: 200px;
      margin: 0px;
+     margin-bottom: 30px;
      border-radius: 5px;
 }
 
@@ -74,16 +79,17 @@ export default {
      width: 170px;
      height:230px;
      margin: 5px;
+     margin-bottom: 80px;
      border: 2px solid;
      background: black;
 }
 
 .style-book{
      text-align: center;
-     background-color: rgb(18, 34, 63);
+     background-color: rgb(19, 62, 80);
      border-radius: 5p;
      color: rgb(253, 236, 250);
-     border: 2px solid red;         
+     border: 2px solid whitesmoke;         
 }
 
 h5{

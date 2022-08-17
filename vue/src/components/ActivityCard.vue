@@ -38,8 +38,12 @@ export default {
      display: flex;
      padding: 10px;
      background:#2abbb4;
-     width: 100%;
+     width: 100vw;
+     justify-items: space-evenly;
+     text-align: left;
+     border: 1px solid whitesmoke;
 }
+
 
 /* 
 #username{

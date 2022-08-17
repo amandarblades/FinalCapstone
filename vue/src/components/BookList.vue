@@ -84,7 +84,7 @@ export default {
 .bookCard{
      width: 170px;
      height: 210px;
-     background: yellow;
+     
 }
 
 </style>

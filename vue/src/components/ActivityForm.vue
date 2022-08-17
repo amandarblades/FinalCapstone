@@ -57,7 +57,7 @@ export default {
         title: this.activity.title,
         description: this.activity.description,
         minutesRead: this.activity.minutesRead,
-        dateCompleted: this.dateCompleted,
+        dateCompleted: this.activity.dateCompleted,
         notes: this.activity.notes
       };
        window.alert("Activity Saved!"),
