@@ -10,7 +10,7 @@
           <div class="activity-item" id="username">{{activity.username}}</div>
           <div class="activity-item" id="minutes-read">{{activity.minutesRead}} </div>
           <div class="activity-item" id="title">{{activity.title}}</div>
-          <div class="activity-item" id="date-completed">{{activity.dateCompleted}}</div>
+          <div class="activity-item" id="date-logged">{{activity.dateLogged}}</div>
           <div class="activity-item" id="description">{{activity.description}}</div>
           <div class="activity-item" id="notes">{{activity.notes}}</div>
       </div>

@@ -5,7 +5,7 @@
      <div class="form-container">
     <form v-on:submit.prevent="submitForm" class="activityForm" >
          <label for="username" >Reader: </label>
-         <input type="text" v-model="activity.username">
+         <input type="text" placeholder="User" name="username" id="username" v-model="activity.username"/>
          
          <label for="title">What did you read?</label>
 
@@ -15,12 +15,6 @@
           <option class="my-book-options" disabled hidden value="">Pick a title:</option>
           <option class="my-book-options" :value="this.$store.state.books.title" v-for="book in getBooks" v-bind:key="book.isbn">{{book.title}}</option>
         </select> -->
-
-
-
-
-
-
         <input type="text" placeholder="Book Title" name="current-book" id="current-book" v-model="activity.title"/>
         <label for="minutes">Minutes read: </label>
         <input type="number" placeholder="Number read" name="minutes" id="logged-minutes" v-model="activity.minutesRead"/>
@@ -32,8 +26,8 @@
           <option value="Audiobook">Audiobook</option>
           <option value="Digital">Digital</option>
           <option value="Paper">Paper</option>
-          <option value="Read-Aloud(Reader)">Read-Aloud(Reader)</option>
-          <option value="Read-Aloud(Listener)">Read-Aloud(Listener)</option>
+          <option value="Read-Aloud (Reader)">Read-Aloud(Reader)</option>
+          <option value="Read-Aloud (Listener)">Read-Aloud(Listener)</option>
           <option value="Other">Other</option>
         </select>
         <label for="notes"></label>
@@ -56,14 +50,14 @@ export default {
   data() {
     return {
       activity: {
+        username: '',
         title: "",
         description: "",
         minutesRead: 0,
         dateLogged: '',
-        notes: "",
-        username: "",
+        notes: ""
       },
-      bookData: ['Dracula', 'Frankenstein']
+      // bookData: ['Dracula', 'Frankenstein']
     };
   },
   components: {},
@@ -76,6 +70,7 @@ export default {
   methods: {
     submitForm() {
       const newActivity = {
+        username: this.activity.username,
         title: this.activity.title,
         description: this.activity.description,
         minutesRead: this.activity.minutesRead,

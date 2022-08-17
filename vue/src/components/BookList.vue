@@ -6,7 +6,7 @@
           <div class="book">
 
             <book-card class="bookCard" v-bind:book="book" v-for="book in getBooks" v-bind:key="book.title"/>
-          
+            
           </div>
 
       </div>

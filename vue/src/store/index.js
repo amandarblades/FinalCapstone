@@ -38,6 +38,13 @@ export default new Vuex.Store({
       isbn: '',
       imgURL: '@/public/darkGreyThumbnailBW.png'
     },
+    currentBook: {
+      title: '',
+      author: '',
+      status: '',
+      isbn: '',
+      imgURL: '@/public/darkGreyThumbnailBW.png'
+    },
     books: [
       {
         title: '',

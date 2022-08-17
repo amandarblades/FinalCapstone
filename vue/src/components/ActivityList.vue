@@ -117,7 +117,7 @@ div {
      
       border: 2px solid white;
 }
-#date-completed{
+#date-logged{
      
       border: 2px solid white;
       padding: 10px;
