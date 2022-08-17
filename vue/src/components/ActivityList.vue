@@ -7,7 +7,7 @@
             <div class="table-header" id="username">Username </div>
             <div class="table-header" id="minutes-read">Mins Read</div>
             <div class="table-header" id="title">Title Read</div>
-            <div class="table-header" id="date-completed">Date</div>
+            <div class="table-header" id="date-logged">Date</div>
             <div class="table-header" id="description">Format</div>
             <div class="table-header" id="notes">Notes</div>
             </div>
@@ -33,7 +33,7 @@ export default {
                     title: '',
                     description: '',   
                     minutesRead: 0,
-                    dateCompleted: '',
+                    dateLogged: '',
                     notes: '',
                     username: ''
                 },

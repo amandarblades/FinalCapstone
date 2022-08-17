@@ -23,7 +23,7 @@ export default new Vuex.Store({
       title: '',
       description: '',
       minutesRead: 0,
-      dateCompleted: '',
+      dateLogged: '',
       notes: '',
       username: ''
     },
@@ -53,7 +53,7 @@ export default new Vuex.Store({
         title: '',
         description: '',
         minutesRead: 0,
-        dateCompleted: '',
+        dateLogged: '',
         notes: '',
         username: ''
       }

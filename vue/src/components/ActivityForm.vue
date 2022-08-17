@@ -4,12 +4,28 @@
        <h2>Log your minutes!</h2>
      <div class="form-container">
     <form v-on:submit.prevent="submitForm" class="activityForm" >
+         <label for="username" >Reader: </label>
+         <input type="text" v-model="activity.username">
+         
          <label for="title">What did you read?</label>
+
+
+
+        <!-- <select class="drop-down" name="title" id="title" v-model="activity.title" required>
+          <option class="my-book-options" disabled hidden value="">Pick a title:</option>
+          <option class="my-book-options" :value="this.$store.state.books.title" v-for="book in getBooks" v-bind:key="book.isbn">{{book.title}}</option>
+        </select> -->
+
+
+
+
+
+
         <input type="text" placeholder="Book Title" name="current-book" id="current-book" v-model="activity.title"/>
         <label for="minutes">Minutes read: </label>
         <input type="number" placeholder="Number read" name="minutes" id="logged-minutes" v-model="activity.minutesRead"/>
-        <label for="date-completed">Date Completed: </label>
-        <input type="date" name="date-completed" id="date-completed" v-model="activity.dateCompleted"/>
+        <label for="date-logged">Date Completed: </label>
+        <input type="date" name="date-logged" id="date-logged" v-model="activity.dateLogged"/>
         <label for="read-type">How did you read?</label>
         <select name="read-type" id="type" v-model="activity.description">
           <option value="" disabled selected>Please Select Type</option>
@@ -32,9 +48,10 @@
 
 <script>
 import ActivityService from '@/services/ActivityService.js';
-import BookList from '@/components/BookList.vue'
+
 
 export default {
+
   name: "add-activity",
   data() {
     return {
@@ -42,14 +59,19 @@ export default {
         title: "",
         description: "",
         minutesRead: 0,
-        dateCompleted: '',
+        dateLogged: '',
         notes: "",
         username: "",
       },
+      bookData: ['Dracula', 'Frankenstein']
     };
   },
-  computed:{
-       options: () => BookList,
+  components: {},
+  computed: {
+    getBooks() {
+            return this.$store.state.books;
+        },
+    
   },
   methods: {
     submitForm() {
@@ -57,7 +79,7 @@ export default {
         title: this.activity.title,
         description: this.activity.description,
         minutesRead: this.activity.minutesRead,
-        dateCompleted: this.activity.dateCompleted,
+        dateLogged: this.activity.dateLogged,
         notes: this.activity.notes
       };
        window.alert("Activity Saved!"),
