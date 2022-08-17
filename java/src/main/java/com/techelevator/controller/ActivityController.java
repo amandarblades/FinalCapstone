@@ -32,7 +32,6 @@ public class ActivityController {
     @RequestMapping(value="/addactivity", method = RequestMethod.POST)
     public void logActivity(@Valid @RequestBody Activity newActivity){
 
-        //String username = "Nate"; //getCurrentUsername(principal);
         activityDao.logNewActivity(newActivity);
 
     }
@@ -41,7 +40,7 @@ public class ActivityController {
     @RequestMapping(value="/getactivities", method = RequestMethod.GET)
     public List<Activity> getUserActivities(Principal principal){
         List<Activity> activities = new ArrayList<>();
-        String username = "Nate"; //getCurrentUsername(principal);
+        String username = getCurrentUsername(principal);
         String userRole = userDao.getUserRole(username);
          activities = activityDao.getActivities(username, userRole);
         return activities;

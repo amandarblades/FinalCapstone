@@ -35,7 +35,7 @@ public class PrizeController {
     @RequestMapping(value = "/getprizes", method = RequestMethod.GET)
     public List<Prize> getUserPrizes(Principal principal){
         List<Prize> prizes = new ArrayList<>();
-        String username = "Amanda"; // getCurrentUsername(principal);
+        String username = getCurrentUsername(principal);
         String userRole = userDao.getUserRole(username);
         prizes = prizeDao.getActivePrizes(username, userRole);
         return prizes;
