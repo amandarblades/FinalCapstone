@@ -8,11 +8,7 @@
         <!-- <label for="current-book" >Book read: </label>
          <v-select :options="bookList"  :value="book.title" id="current-book" @input="(BookList) => updateTitle(book.title)">
           <option value="" disabled selected>Please Select Title Read</option> -->
-        <input
-          type="text"
-          placeholder="Book Title"
-          name="current-book"
-          id="current-book"
+        <input type="text" placeholder="Book Title" name="current-book" id="current-book"
           v-model="activity.title"
         />
         <label for="minutes">Minutes read: </label>

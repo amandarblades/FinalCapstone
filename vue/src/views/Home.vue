@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="home">
-    <h1>My Library</h1>
+    <h1>My {{this.$store.state.familyName}} Library</h1>
     <p>See your books, and add a book by ISBN.</p>
      <div class="align-right">
       <button v-on:click="isShowForm=true" class="button">Add New Book</button>
@@ -22,6 +22,7 @@
 import BookList from "@/components/BookList.vue";
 import AddNewBook from "@/components/AddNewBook.vue";
 import ActivityList from "@/components/ActivityList.vue";
+import FamilyService from "@/services/FamilyService.js";
 
 
 export default {
@@ -29,16 +30,23 @@ export default {
   data(){
     return{
       isShowForm: false,
+      familyName: ''
     }
   },
   components: {
     BookList,
     AddNewBook,
     ActivityList
-  }
+  },
+   created(){
+        FamilyService.getFamilyName()
+        .then( (response) => {
+            this.familyName = response.data;
+            this.$store.commit("SET_FAMILY_NAME", response.data);
+        });
  
-  
-};
+   }
+}
 </script>
 
 <style scoped>

@@ -12,5 +12,8 @@ export default {
     },
     getUserValidation(user){
         return axios.get(`/sysUsers/${user}`);
+    },
+    getFamilyName(){
+         return axios.get(`/getfamilyname`);
     }
 }

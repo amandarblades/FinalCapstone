@@ -13,7 +13,6 @@
             </div>
             <activity-card v-bind:activity="activity" v-for="activity in getActivities" v-bind:key="activity.id"></activity-card>
             
-            
         </div>
     </div>
   </div>

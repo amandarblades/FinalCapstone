@@ -17,4 +17,6 @@ public interface FamilyDao {
 
     public boolean sysUser(String username);
 
+    public String getFamilyName(String username);
+
 }

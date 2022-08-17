@@ -55,14 +55,13 @@ export default {
      methods: {
           submitForm(){
           const newPrize = {
-          title: this.prize.prizeName,
-          startDate: this.startDate,
-          endDate: this.endDate,
-          maxPrize: this.maxPrize,
-          milestone: this.milestone,
-          description: this.description,
-          userRole:this.userRole,
-          numOfPrizeWinners: this.numOfPrizeWinners
+          prizeName: this.prize.prizeName,
+          startDate: this.prize.startDate,
+          endDate: this.prize.endDate,
+          maxPrize: this.prize.maxPrize,
+          milestone: this.prize.milestone,
+          description: this.prize.description,
+          userRole: this.prize.userRole,
           };
           window.alert("New Prize Made!"),
           window.location.reload();

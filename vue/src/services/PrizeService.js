@@ -7,10 +7,10 @@ export default {
     },
 
     getPrizes(){
-        return axios.get('/getprizes');
+        return axios.get(`/getprizes`);
     },
 
     getFamilyPrizes(){
-        return axios.get('/getfamilyprizes');
+        return axios.get(`/getfamilyprizes`);
     }
 }

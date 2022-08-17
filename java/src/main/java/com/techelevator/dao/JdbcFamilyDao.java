@@ -73,6 +73,15 @@ public class JdbcFamilyDao implements FamilyDao {
         return (jdbcTemplate.queryForObject("SELECT Count(*) FROM users WHERE username = ?", Integer.class, username)) > 0;
     }
 
+    @Override
+    public String getFamilyName(String username) {
+        String familyName = null;
+        String sql = "SELECT family_name FROM family_unit fu JOIN user_family uf ON uf.family_id = fu.id " +
+            "JOIN users u ON u.user_id = uf.user_id WHERE u.user_id = (SELECT user_id FROM users WHERE username = ?);";
+        familyName = jdbcTemplate.queryForObject(sql, String.class, username);
+        return familyName;
+    }
+
     public Family mapRowToFamily(SqlRowSet rs){
         Family family = new Family();
         family.setFamilyID(rs.getInt("id"));

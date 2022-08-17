@@ -65,6 +65,13 @@ public class FamilyController {
         return isUser;
     }
 
+    @RequestMapping(value = "/getfamilyname", method = RequestMethod.GET)
+    public String getFamilyName(Principal principal){
+        String username = "Nate"; //getCurrentUsername(principal);
+        String familyName = familyDao.getFamilyName(username);
+        return familyName;
+    }
+
     private String getCurrentUsername(Principal principal){
         return principal.getName();}
 

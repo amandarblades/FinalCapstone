@@ -2,8 +2,9 @@
   <div>
       <div class="prizes">
           <div >
+               <h2>My prizes</h2>
 
-              <prize-card class="prizeCard" v-bind:prize="prize" v-for="prize in getPrize" v-bind:key="prize.prizeID"/>
+              <prize-card class="prizeCard" v-bind:prize="prize" v-for="prize in getPrizes" v-bind:key="prize.prizeID"></prize-card>
 
           </div>
       </div>
@@ -47,7 +48,7 @@ export default {
         PrizeService.getPrizes()
         .then( (response) => {
             this.prizes = response.data;
-            this.$store.commit("SET_PRIZE", response.data);
+            this.$store.commit("SET_CURRENT_PRIZES", response.data);
         });
     }
 

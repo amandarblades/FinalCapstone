@@ -8,7 +8,7 @@
           <div class="milestone" id="milestone">{{prize.milestone}}</div>
           <div class="description" id="description">{{prize.description}}</div>
           <div class="user-role" id="userRole">{{prize.userRole}}</div>
-          <div class="number-of-prize-winners" id="numberOfPrizeWinners">{{prize.numberOfPrizeWinners}}</div>
+          <div class="number-of-prize-winners" id="numberOfPrizeWinners">{{prize.numOfPrizeWinners}}</div>
           <div class="is-Active" id="isActive">{{prize.isActive}}</div>
 
       </div>

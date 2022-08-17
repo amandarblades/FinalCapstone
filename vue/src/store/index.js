@@ -137,6 +137,9 @@ export default new Vuex.Store({
     },
     SET_PRIZE(state, data) {
       state.prize = data;
+    },
+    SET_CURRENT_PRIZES(state, data){
+         state.prizes=data;
     }
   }
 })
