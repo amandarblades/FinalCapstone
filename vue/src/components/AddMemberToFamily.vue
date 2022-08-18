@@ -22,8 +22,6 @@ export default {
      },
      methods: {
           submitForm() {
-               window.alert("add member to family " + this.familyMemberName);
-
                const activeMember = FamilyService.getUserValidation(this.familyMemberName);
                
                if(activeMember){

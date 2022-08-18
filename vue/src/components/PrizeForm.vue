@@ -12,7 +12,7 @@
                <input type="date" v-model="prize.endDate">
                <label for="maxPrize">Available prizes:</label>
                <input type="number" v-model="prize.maxPrize">
-               <label for="milestone">To Win:</label>
+               <label for="milestone">Goal:</label>
                <input type="number" v-model="prize.milestone">
           </div>
 

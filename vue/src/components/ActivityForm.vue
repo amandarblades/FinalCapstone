@@ -181,7 +181,7 @@ input[type=reset]:hover
 .form-container{
      border-radius: 5px;
      background-color: rgba(226, 223, 206, 0.767);
-     width: 85vw;
+     width: 65vw;
 }
 
 h2{

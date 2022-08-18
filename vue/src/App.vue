@@ -47,6 +47,13 @@
      justify-items: center;
      align-items: center;
 }
+#app::-webkit-scrollbar{
+     width: 1em; 
+}
+#app{
+     overflow: scroll;
+     overflow-x: hidden;
+}
 #nav{
      display: flex;
      /* background-color: rgb(66, 107, 182); */

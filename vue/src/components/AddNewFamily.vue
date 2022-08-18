@@ -40,7 +40,6 @@ export default {
   // ],
   methods: {
     addFamily(familyName){
-      window.alert("ADDED NEW FAMILY");
       FamilyService.createFamily(familyName)
       .then((response) =>{
         this.$store.commit("SET_FAMILY_NAME", response.data);
