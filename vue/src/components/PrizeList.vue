@@ -2,7 +2,7 @@
   <div>
       <div class="prizes">
           <div >
-               <h2>My prizes</h2>
+               <h2>My Prizes</h2>
           <div class="testing-grid">
               <prize-card class="prizeCard" v-bind:prize="prize" v-for="prize in getPrizes" v-bind:key="prize.prizeID"></prize-card>
               </div>
@@ -59,9 +59,31 @@ export default {
 
 <style scoped>
 .testing-grid{
-     display: inline;
-     justify-content: space-between;
+     display: flex;   
+     text-align: center;
+     max-width: 65vw;
+     border: 2px solid black;
+     padding: 5px;
+     background:rgb(18, 34, 63);
+     overflow: auto;
+     flex-wrap: wrap;
+     max-height: 35vh;
+     justify-content: center;
+     margin-bottom: 25px;
+     }
+.prizes{
+     display: flex;
+     text-align: center;
      align-items: center;
+     justify-content: center;
+}
+::-webkit-scrollbar{
+     width: 10px;
+     background: rgb(18, 34, 63);
+}
+::-webkit-scrollbar-thumb{
+     border-radius: 10px;
+     background: rgb(36, 58, 99);
 }
 
 
