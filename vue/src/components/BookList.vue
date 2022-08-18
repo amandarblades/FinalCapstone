@@ -54,8 +54,6 @@ export default {
 
 <style scoped>
 
-
-
 .book  {
     display: flex;
     justify-content: space-evenly;

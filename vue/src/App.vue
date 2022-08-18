@@ -4,11 +4,11 @@
   <div id="app">  
     <div id="nav" >
          <div class="logo"><img id="BW" src="favThumbnailBW.png" alt="Bookworm Logo"></div>
-      <router-link class="nav-button" v-bind:to="{ name: 'home' }" tag="button" style="background-color: rgb(19, 62, 80)">My Library</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'home' }" tag="button" style="background-color: rgb(19, 62, 80)">Library</router-link>
       <router-link class="nav-button" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != '' " tag="button" style="background-color:rgb(19, 62, 80)">Logout</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'family' }" tag="button" style="background-color: rgb(19, 62, 80)">Family Library</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'family' }" tag="button" style="background-color: rgb(19, 62, 80)">Family</router-link>
       <router-link class="nav-button" v-bind:to="{ name: 'prizes' }" tag="button" style="background-color: rgb(19, 62, 80)">Prizes</router-link>
-      <router-link class="nav-button" v-bind:to="{ name: 'add-activity' }" tag="button" style="background-color: rgb(19, 62, 80)" >Log Activity</router-link>
+      <router-link class="nav-button" v-bind:to="{ name: 'add-activity' }" tag="button" style="background-color: rgb(19, 62, 80)" >Activity</router-link>
     </div>
     <!-- <img id="book-image" src="blueTransparentBooks.png" alt="a book background" />  -->
     <router-view />

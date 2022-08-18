@@ -24,5 +24,7 @@ export default {
 .family-item{
      border: 2px solid black;
      width: 50%;
+     color: whitesmoke;
+     font-weight: bold;
 }
 </style>

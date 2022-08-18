@@ -1,6 +1,7 @@
 <template>
   <div class="my-family">
     <h2>Family Members</h2>
+    <p>Listed with their total minutes read</p>
     <div class="members">
       <div class="member">
         <user v-for="member in familyUsers" v-bind:key="member.username" v-bind:familyUser="member" ></user>
@@ -67,6 +68,11 @@ export default {
 </script>
 
 <style scoped>
+h2{
+     margin-bottom: -8px;
+     color: rgb(19, 62, 80);
+}
+
 div{
       font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
      color: gray
@@ -74,5 +80,13 @@ div{
 .member{
      display:flex;
      flex-direction: column;
+      width: 100%;
+     border: 2px solid black;
+     /* padding: 10px; */
+     background:#2abbb4;
+    
+     border-radius: 5px;
 }
+
+
 </style>

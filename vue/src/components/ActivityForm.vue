@@ -96,7 +96,13 @@ form > div > h5 {
   color: black;
   margin-bottom: 0px;
 }
-
+input[type=text] {
+     width: 75%;
+     padding: 15px;
+     border: 1px solid rgba(226, 223, 206, 0.767);
+     border-radius: 4px;
+     resize: vertical;
+}
 .container{
      background-image: src="favThumbnailBW.png" alt="Bookworm Logo";
      display: flex;
@@ -175,6 +181,7 @@ input[type=reset]:hover
 .form-container{
      border-radius: 5px;
      background-color: rgba(226, 223, 206, 0.767);
+     width: 85vw;
 }
 
 h2{

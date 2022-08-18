@@ -42,6 +42,7 @@ export default {
      justify-items: space-evenly;
      text-align: left;
      border: 1px solid whitesmoke;
+     font-weight: bold;
 }
 
 

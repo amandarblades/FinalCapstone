@@ -80,6 +80,18 @@ input[type=reset]:hover
      transition: 0.7s;
      cursor: pointer;
 }
+input[type=text] {
+     width: 75%;
+     padding: 15px;
+     border: 1px solid rgba(226, 223, 206, 0.767);
+     border-radius: 4px;
+     resize: vertical;
+}
+.add-family{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
 
 
 </style>
