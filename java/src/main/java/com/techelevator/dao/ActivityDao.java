@@ -12,6 +12,6 @@ public interface ActivityDao {
 
     public void updateActivity();
 
-    public void deleteActivity();
+    public void deleteActivity(int activityID);
 
 }

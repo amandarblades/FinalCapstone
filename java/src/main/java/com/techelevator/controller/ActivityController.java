@@ -47,6 +47,10 @@ public class ActivityController {
         return activities;
     }
 
+    @RequestMapping(value = "/deleteactivity/{id}", method = RequestMethod.DELETE)
+    public void deleteActivity(@PathVariable int id){
+        activityDao.deleteActivity(id);
+    }
     private String getCurrentUsername(Principal principal){
         return principal.getName();
     }

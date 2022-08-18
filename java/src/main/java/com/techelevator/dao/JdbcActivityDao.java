@@ -72,9 +72,11 @@ public class JdbcActivityDao implements ActivityDao {
 
     }
 
-    public void deleteActivity(){
-
-
+    public void deleteActivity(int activityID){
+        String sqlUserDelete = "DELETE FROM user_activity WHERE activity_id = ?";
+        String sqlActivityDelete = "DELETE FROM activity_log WHERE activity_id = ?";
+        jdbcTemplate.update(sqlUserDelete, activityID);
+        jdbcTemplate.update(sqlActivityDelete, activityID);
     }
 
     public Activity mapRowToActivity(SqlRowSet rs){
