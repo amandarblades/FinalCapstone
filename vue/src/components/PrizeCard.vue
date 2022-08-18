@@ -1,29 +1,32 @@
 <template>
   <div class="prize-card">
-      <div class="container">
-          <div class="prize-item" id="prizeName">{{prize.prizeName}}</div>
-          <div class="prize-item" id="startDate">{{prize.startDate}}</div>
-          <div class="prize-item" id="endDate">{{prize.endDate}}</div>
-          <div class="prize-item" id="maxPrize">{{prize.maxPrize}}</div>
-          <div class="prize-item" id="milestone">{{prize.milestone}}</div>
-          <div class="prize-item" id="description">{{prize.description}}</div>
-          <div class="prize-item" id="userRole">{{prize.userRole}}</div>
-          <div class="prize-item" id="numberOfPrizeWinners">{{prize.numOfPrizeWinners}}</div>
-          <div class="prize-item" id="isActive">{{prize.isActive}}</div>
-          <div id="burst-8"></div>
+    <div class="container">
+      <div class="prize-item" id="prizeName">Prize Name: {{ prize.prizeName }}</div>
+      <!-- <div class="prize-item" id="startDate">{{prize.startDate}}</div> -->
+      <div class="prize-item" id="endDate">Due by: {{ prize.endDate }}</div>
 
+      <div class="prize-item" id="description">{{ prize.description }}</div>
+      <!-- <div class="prize-item" id="userRole">{{prize.userRole}}</div> -->
+      <div class="prize-item" id="milestone"> Goal: {{ prize.milestone }}min</div>
+      <div class="prize-fraction">
+        <!-- <div class="prize-item" id="numberOfPrizeWinners">
+          {{ prize.numOfPrizeWinners }}
+        </div> -->
+        <div class="prize-item" id="maxPrize">{{ prize.maxPrize }} Prizes Available</div>
       </div>
+      <!-- <div class="prize-item" id="isActive">{{prize.isActive}}</div> -->
+      <div id="burst-8"></div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'prize-card',
-    props: {
-        prize: Object
-    }
-
-}
+  name: "prize-card",
+  props: {
+    prize: Object,
+  },
+};
 </script>
 
 <style scoped>
@@ -34,28 +37,54 @@ export default {
      align-items: center;
    
 } */
-.container{
-     display: flex;
-     border: 2px solid rgb(82, 82, 82);
-     border-radius: 5px;
+.container {
+  
+  border: 2px solid rgb(82, 82, 82);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "prizeName prizeName endDate"
+    "description maxPrize milestone"
+    "description maxPrize milestone";
 }
 
-.prize-card{
-  display: flex;
+#prizeName{
+  grid-area: prizeName;
+}
+#endDate{
+  grid-area: endDate;
+}
+#description{
+  grid-area: description;
+}
+#milestone{
+  grid-area: milestone;
+}
+#numberOfPrizeWinners{
+  grid-area: numberOfPrizeWinners;
+}
+#maxPrize{
+  grid-area: maxPrize;
+}
+
+/* 
+.prize-card {
   flex-wrap: wrap;
-   width: 170px;
-     height:230px;
-     margin: 5px;
-     border: 2px solid;
+  width: 170px;
+  height: 230px;
+  margin: 5px;
+  border: 2px solid rgb(161, 21, 21);
+} */
+
+.prize-item {
+  /* display: flex; */
+
+  padding: 10px;
+  background: #2abbb4;
 }
 
-.prize-item{
-     display: flex;
-     
-     padding: 10px;
-     background:#2abbb4
-}
-    /* #burst-8 {
+/* #burst-8 {
      margin: 20px;
       background: blue;
       width: 80px;
