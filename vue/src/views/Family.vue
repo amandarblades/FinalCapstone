@@ -1,10 +1,13 @@
 <template>
   <div class="background">
-    <div class="form-container">
+    
       <h2>{{this.$store.state.familyName}} Family Library</h2>
+     
       <button id="add-family" @click="isUpdating = !isUpdating">
+            
         {{ isUpdating ? "Discard Changes" : "Update Family" }}
       </button>
+      <div class="form-container">
       <add-new-family v-show="isUpdating"></add-new-family>
     
     
