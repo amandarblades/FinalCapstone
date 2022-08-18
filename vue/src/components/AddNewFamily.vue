@@ -3,8 +3,10 @@
 
     <form action="">
       <label for="name" >Update Family Name: </label>
+     
       <input type="text" v-model="familyName"/>
       <input @click="addFamily(familyName)" type="submit">
+       <p>(You will automatically be added to your family)</p>
     </form>
 
    
@@ -71,6 +73,11 @@ input[type=reset]{
   transition: opacity 0.3s linear 0s;
   background-color: rgb(19, 62, 80);
  margin: 10px;
+}
+
+p{
+     font-size: smaller;
+     color: rgb(128, 126, 118)
 }
 
 input[type=submit]:hover,
