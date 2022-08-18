@@ -15,5 +15,8 @@ export default {
     },
     getFamilyName(){
          return axios.get(`/getfamilyname`);
-    }
+    },
+    // updateFamilyName(familyName){
+    //     return axios.put(`/updatefamilyname/${familyName}`);
+    // } createFamily does both POST and PUT
 }

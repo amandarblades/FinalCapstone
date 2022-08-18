@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="form-container">
-      <h2>Family Library</h2>
+      <h2>{{this.$store.state.familyName}} Family Library</h2>
       <button id="add-family" @click="isUpdating = !isUpdating">
         {{ isUpdating ? "Discard Changes" : "Update Family" }}
       </button>
@@ -16,7 +16,8 @@
 import AddNewFamily from "@/components/AddNewFamily.vue";
 import FamilyList from "@/components/FamilyList.vue";
 import addMemberToFamily from "@/components/AddMemberToFamily.vue";
-//import FamilyService from "@/services/FamilyService.js";
+import FamilyService from "@/services/FamilyService.js";
+
 
 export default {
   name: "add-family",
@@ -46,20 +47,16 @@ export default {
   //          .then(( response) =>
   //          this.$store.commit("SET_FAMILY_MEMBER", response.data));
   //          window.location.reload();
-  //     }
   //     },
-  created() {
-
-    //FAMILY SERICE WTF
-
-    let famTempArray =       [
-        {username: "Bob", minutesRead: 10},
-        {username: "Mary", minutesRead: 10},
-        {username: "Jake", minutesRead: 10}
-      ];
-
-    this.$store.commit('SET_FAMILY_MEMBERS', famTempArray);
-  }
+  //     },
+ created(){
+        FamilyService.getFamilyName()
+        .then( (response) => {
+            this.familyName = response.data;
+            this.$store.commit("SET_FAMILY_NAME", response.data);
+        });
+ 
+   }
 };
 </script>
 
